@@ -1,0 +1,22 @@
+//
+// layouts.scss
+//
+
+// Boxed layout
+body[data-layout=horizontal] {
+    &.boxed-layout {
+        .container-fluid {
+            max-width: $boxed-layout-width;
+        }
+    }
+}
+
+
+@media (min-width: 992px) {
+    // Unsticky header
+    .unsticky-header {
+        #topnav,.navbar-custom {
+            position: absolute;
+        }
+    }
+}

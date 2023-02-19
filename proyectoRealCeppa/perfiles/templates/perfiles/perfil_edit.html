@@ -1,0 +1,455 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Perfil: {{miPerfil.user}}{% endblock %}
+{% block content %}
+<style>.errorlist{color:red;} label{display:none}
+
+</style>
+
+
+<main role="main">
+
+                    
+
+
+                        <br>
+                        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                      
+  
+                        <!-- end page title --> 
+
+                        <div class="row">
+
+                            <div class="col-sm-12"> 
+                            
+                                <div class="profile-bg-picture" style="background-image: url({% static 'core/img/bg-profile.jpg' %}); position: relative;">
+  <span class="picture-bg-overlay" style="background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .6)); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></span>
+</div>
+                                <!-- meta -->
+                                <div class="profile-user-box">
+                                {% if 'register' in request.GET %}
+                                        <div class="alert alert-success" role="alert">
+                                            <strong>¡Usuario Registrado Correctamente!</strong> Por favor, <strong>complete</strong> los datos del perfil.
+                                        </div>
+
+                                        {% endif %}
+
+
+                                        {% if 'fail' in request.GET %}
+                                        <div class="alert alert-danger" role="alert">
+                                            <strong>¡Error!</strong> Por favor, <strong>complete</strong> los datos del perfil.
+                                        </div>
+                                            
+                                            {% endif %}
+
+
+                             
+
+
+
+                                        
+                                    <div class="row">
+                                    
+                                        <div class="col-md-2 col-sm-3">
+                                        
+                                            <span class="float-left mr-3">
+                                            
+                                            {% if miPerfil.avatar %}
+                <img src="{{miPerfil.avatar.url}}" class="avatar-xl rounded-circle" style="margin-left: 20px;">
+              {% else %}
+                <img src="{% static 'registration/img/no-avatar.jpg' %}" class="avatar-xl rounded-circle"style="margin-left: 20px;">
+                
+              {% endif %}
+                <br>
+                <strong>Foto perfil :</strong>
+              <input type="file" name="avatar" id="avatar" class="form-control mb-3" accept="image/*" style="border:none;width:155px;margin-left:-20px;">
+              
+             
+              
+              
+
+           </span>
+           <span class="float-left mr-3">
+           
+           
+                                      
+                                        </div>
+
+  
+                                         
+
+
+                                                
+                                              
+                                          
+                                        <div class="col-md-4 col-sm-5">
+                                        
+                                     <p class="text-muted font-13"><strong>Tratamiento :</strong>{{perfil_form.tratamiento}} </p>
+                                     <p class="text-muted font-13"><strong>Nombre :</strong> {{usuario_form.first_name}}</p>
+                                     <p class="text-muted font-13"><strong>Apellidos :</strong>{{usuario_form.last_name}}</p>
+                                     
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-4">
+                                        <p class="text-muted font-13"><strong>Email :</strong> {{ usuario_form.email }}</p>
+                                        <p class="text-muted font-13"><strong>Nº Socio :</strong> {{ perfil_form.numeroSocio }}</p>
+                                        <p class="text-muted font-13"><strong>Tipo Socio :</strong> {{ perfil_form.tipoSocio }}</p>
+                                        
+                                        </div>
+                                     
+                               
+
+
+
+                                        <div class="col-md-3 col-sm-4" style="margin-top: 18px;">
+                                            <div class="text-right">
+                                            <input type="submit" class="btn btn-primary btn-block" value="Actualizar perfil">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <!--/ meta -->
+                            </div>
+                        </div>
+                        <!-- end row -->
+        
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <!-- Personal-Information -->
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 mb-4">Información Personal</h4>
+                                    <div class="panel-body">
+                                    <p class="text-muted font-13"><strong>Biografía :</strong>
+                                    <span class="m-l-15">{{perfil_form.biografia}}</span></p>
+                                    
+        
+                                        <hr>
+        
+                                        <div class="text-left">
+
+                                            <p class="text-muted font-13"><strong>Fecha Nacimiento :</strong>{{perfil_form.fechaNacimiento}}</p> 
+
+                                            <p class="text-muted font-13"><strong>DNI :</strong>{{perfil_form.dni}}</p>
+                                       
+                                             <p class="text-muted font-13"><strong>Dirección :</strong>  {{perfil_form.direccion}}</p> 
+                                                                                
+                                               
+                                            <p class="text-muted font-13"><strong>Teléfono :</strong>  {{ perfil_form.telefono }}</p>
+                                            <p class="text-muted font-13"><strong>Código Postal :</strong> <span class="ml-3">{{perfil_form.codigoPostal}}</span></p>
+
+                                            <p class="text-muted font-13"><strong>Población :</strong> <span class="ml-3">{{perfil_form.poblacion}}</span></p>
+
+                                            <p class="text-muted font-13"><strong>Provincia :</strong> <span class="ml-3">{{perfil_form.provincia}}</span></p>
+
+                                            
+
+                                            <p class="text-muted font-13"><strong>Región :</strong> <span class="ml-3">{{perfil_form.region}}</span></p>
+
+                                            <p class="text-muted font-13"><strong>País :</strong> <span class="ml-3">{{perfil_form.pais}}</span></p>
+        
+                                        
+        
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Personal-Information -->
+        
+                                
+        
+                            </div>
+        
+        
+                            <div class="col-md-6 col-lg-8">
+        
+        
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 mb-4">Datos Club</h4>
+                                    <div class="">
+                                        <div class="col-md-6 col-sm-12" style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Delegación</h5>
+        
+                                            <p class="text-muted font-13 mb-0">{{perfil_form.delegacion}}
+                                            </p>
+                                        </div>
+
+                                        <div class="col-md-5 col-sm-12" style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Grupo de Trabajo</h5>
+        
+                                            <p class="text-muted font-13 mb-0">{{perfil_form.grupoTrabajo}}
+                                            </p>
+                                        </div>
+
+                                        <div class="col-md-6 col-sm-12" style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Afijo</h5>
+        
+                                            <p class="text-muted font-13 mb-0">{{perfil_form.afijo}}
+                                            </p>
+                                        </div>
+        
+                                        <hr>
+        
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Criador</h5> 
+                                            <p class="text-muted font-13 mb-0"style="margin-top: -25px;">{{perfil_form.criador}}
+                                            </p>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Figurante</h5> 
+                                            <p class="text-muted font-13 mb-0"style="margin-top: -25px;">{{perfil_form.figurante}}
+                                            </p>
+                                        </div>
+
+
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Trazador</h5> 
+                                            <p class="text-muted font-13 mb-0"style="margin-top: -25px;">{{perfil_form.trazador}}
+                                            </p>
+                                        </div>
+
+                                        
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Juez</h5> 
+                                            <p class="text-muted font-13 mb-0"style="margin-top: -25px;">{{perfil_form.juez}}
+                                            </p>
+                                        </div>
+
+
+                                        
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Inspector</h5> 
+                                            <p class="text-muted font-13 mb-0" style="margin-top: -25px;">{{perfil_form.inspector}}
+                                            </p>
+                                        </div>
+
+                                        <hr>
+
+                                         <div class="col-7"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Cuenta Bancaria: </strong><small>{{perfil_form.cuentaBancaria}}</small></p>
+                                        </div>
+
+                                        <div class="col-4"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Falta Pago: </strong><span style="margin-left:25px;"><small>{{perfil_form.faltaPago}}   </small></span></p>
+                                        </div>
+
+
+
+                                        <hr>
+
+                                        <div class="col-lg-3 col-md-4 col-sm-5"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Fecha Alta: </strong><small>{{user.date_joined|date:"d/m/Y"}}</small></p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-5"  style="display:inline-block;text-align:top">
+                                             <p class="text-muted mb-0"><strong>Fecha Modificación: </strong><small>{{perfil.fechaModificacion|date:"d/m/Y"}}</small></p>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <p class="text-muted mb-2"><strong>Baja: </strong><span style="margin-left:25px;">{{perfil_form.baja}}</span></p>
+                                       
+                                             <p class="text-muted mb-2"><strong>Fecha Baja: </strong><small>{{perfil_form.fechaBaja|date:"d/m/Y"}}</small></p>
+
+                                             <p class="text-muted mb-2"><strong>Motivo Baja: </strong><span style="margin-left:25px;">{{perfil_form.motivoBaja}}</span></p>
+                                        </div>
+
+        
+                                    </div>
+                                </div>
+        
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 mb-4">Titularidad</h4>
+                                    
+                                    <div class="">
+                                    {% if messages %}
+
+                                      {% for message in messages %}
+                                  
+                                    {% if  "Titularidad" in message.message and message.level == 40 %}
+                                        <div class="alert alert-danger alert-dismissible fade show" id="mensajeTitular4" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Error!</strong> {{message.message}}
+                                        </div>
+                                         <script>
+                                        document.getElementById('mensajeTitular4').scrollIntoView();
+                                        </script>
+                                    {% elif "Titularidad" in message.message and message.level == 25 %}
+                                        <div class="alert alert-success alert-dismissible fade show" id="mensajeTitular3" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Exito!</strong> {{message.message}}
+                                        </div>
+                                        <script>
+                                        document.getElementById('mensajeTitular3').scrollIntoView();
+                                        </script>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                               
+                                   
+                                   
+                                
+                                         <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Titular : </strong><small>{{titular_form.titular}}</small></p>
+                                        </div>
+
+                                         <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Ejemplar : </strong><small>{{titular_form.perro_titular}}</small></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Fecha Inicio : </strong><small>{{titular_form.fechaInicio }}</small></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Fecha Fin : </strong><small>{{titular_form.fechaFin }}</small></p>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                        <input type="submit" name="submit_titular_form" class="btn btn-primary btn-block" value="Añadir Titularidad">
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        
+
+
+
+
+                                        <table class="table mb-0">
+                                            <thead>
+                                            <tr>
+                                                <th>Id Ejemplar</th>
+                                                <th>Nombre Ejemplar</th>
+                                                <th>FechaInicio</th>
+                                                <th>Fecha Fin</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for titular in current_titular %}
+                                            <tr>
+                                                <td>{{ titular.perro_titular.id }}</td>
+                                                <td>{{ titular.perro_titular.nombre }} {{ titular.perro_titular.afijo }}</td>
+                                                <td>{{ titular.fechaInicio | date:"d/m/Y"}}</td>
+                                                <td>{{ titular.fechaFin | date:"d/m/Y"}}</td>
+                                                <td><a href="{% url 'perros:perro' titular.perro_titular.id %}" class="btn btn-primary btn-sm">Ver</a></td>
+                                            </tr>
+                                             {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 mb-4">Cesión</h4>
+                                    <div class="">
+                                    {% if messages %}
+                                    {% for message in messages %}
+                                    {% if  "Cesión" in message.message  and message.level == 40 %}
+                                    
+                                 
+                                    <div class="alert alert-danger alert-dismissible fade show" id="mensajeTitular2" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Error!</strong> {{message.message}}
+                                        </div>
+                                        <script>
+                                        document.getElementById('mensajeTitular2').scrollIntoView();
+                                        </script>
+                                    {% elif  "Cesión" in message.message  and message.level == 25 %}
+                                    <div class="alert alert-success alert-dismissible fade show" id="mensajeTitular1" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Exito!</strong> {{message.message}}
+                                        </div>
+                                        <script>
+                                        document.getElementById('mensajeTitular1').scrollIntoView();
+                                        </script>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                    
+                                 
+                                     
+                                
+                                         <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Cesionario : </strong><small>{{cesionario_form.cesionario}}</small></p>
+                                        </div>
+
+                                         <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Ejemplar : </strong><small>{{cesionario_form.perro_cesionario}}</small></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Fecha Inicio : </strong><small>{{cesionario_form.fechaInicio }}</small></p>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Fecha Fin : </strong><small>{{cesionario_form.fechaFin }}</small></p>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 mb-2"  style="display:inline-block">
+                                        <input type="submit" name="submit_cesionario_form" class="btn btn-primary btn-block" value="Añadir Cesión">
+                                        </div>
+                                        <br>
+                                        <hr>
+                                       
+
+
+
+
+                                        <table class="table mb-0">
+                                            <thead>
+                                            <tr>
+                                                <th>Id Ejemplar</th>
+                                                <th>Nombre Ejemplar</th>
+                                                <th>FechaInicio</th>
+                                                <th>Fecha Fin</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for cesionario in current_cesionario %}
+                                            <tr>
+                                                <td>{{ cesionario.perro_cesionario.id }}</td>
+                                                <td>{{ cesionario.perro_cesionario.nombre }} {{ titular.perro_cesionario.afijo }}</td>
+                                                <td>{{ cesionario.fechaInicio | date:"d/m/Y"}}</td>
+                                                <td>{{ cesionario.fechaFin | date:"d/m/Y"}}</td>
+                                                <td><a href="{% url 'perros:perro' cesionario.perro_cesionario.id %}" class="btn btn-primary btn-sm">Ver</a></td>
+                                            </tr>
+                                             {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+        
+                            </div>
+                            <!-- end col -->
+        
+                        </div>
+                        <!-- end row -->
+
+     
+
+                <!-- end Footer -->
+                </form>
+
+</main>
+<script>
+window.addEventListener('load', function() {
+  document.querySelector('#errorTitular"').focus();
+});
+</script>
+{% endblock %}
+
+
+
+
+
+

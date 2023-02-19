@@ -1,0 +1,243 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate "Perros" %}{% endblock %}
+{% block content %}
+<main role="main">
+
+  <h2 id="subTitulo" class="pt-2" >Ejemplares</h2>
+  <br>
+
+  <!-- Create Search Perro structure -->
+
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card-box">
+          <h4 class="header-title">Buscar</h4>
+          <br>
+
+          <div class="row">
+              <div class="col-md-3 inline-group col-sm-6">
+      <label for="searchNombre"
+        class="form-label">
+        {% translate "Nombre" %}
+      </label>
+        <input id="searchNombre" value="{{request.GET.name}}" type="text" class="form-control"   aria-describedby="basic-addon1" placeholder="{% translate "Nombre" %}">
+      </div>  
+
+      <div class="inline-group col-md-3 col-sm-6">
+      <label for="searchChip"
+        class="form-label">
+        {% translate "Chip" %}
+      </label>
+        <input id="searchChip" value="{{request.GET.chip}}" type="text" class="form-control"   aria-describedby="basic-addon1" placeholder="{% translate "Chip" %}">
+        </div> 
+
+
+        <div class="inline-group col-md-3 col-sm-6">
+        <label for="searchNLO"
+        class="form-label">
+        {% translate "NLO" %}
+      </label>
+        <input id="searchNLO" value="{{request.GET.nlo}}" type="text" class="form-control" aria-label="Nº Libro Origenes" aria-describedby="basic-addon1" placeholder="{% translate "Nº Libro Origenes" %}">
+      </div> 
+
+      <div class="inline-group col-md-3 col-sm-6" >
+        <label for="searchTatuaje"
+        class="form-label">
+        {% translate "Tatuaje" %}
+      </label>
+        <input id="searchTatuaje" value="{{request.GET.tatuaje}}" type="text" class="form-control" aria-label="Tatuaje" aria-describedby="basic-addon1" placeholder="{% translate "Tatuaje" %}">
+      </div> 
+
+        <div class="inline-group col-md-3 col-sm-6">
+        <label for="searchEstados"
+        class="form-label">
+        {% translate "Estados" %}
+      </label>      
+
+        <select id="searchEstado" class="form-control" multiple size="3">
+          <option value="0">{% translate "Todos" %}</option>
+          {% for estado in estados %}
+          
+
+            <!-- get from request list estadoPerro and show descripcion if is in list -->
+            {% if estado.pk in request.GET.estadoPerro %}
+              <option value="{{estado.pk}}" selected>{{estado.descripcion}}</option>
+            {% else %}
+              <option value="{{estado.pk}}">{{estado.descripcion}}</option>
+            {% endif %}
+
+
+  
+          {% endfor %}
+        </select>
+      </div>
+
+        <div class="inline-group col-md-3 col-sm-6">
+        <label for="searchPadre"
+        class="form-label">
+        {% translate "Padre" %}
+      </label>
+        <input id="searchPadre" value="{{request.GET.padre}}" type="text" class="form-control" aria-label="Padre" aria-describedby="basic-addon1" placeholder="{% translate "Padre" %}">
+
+      </div>
+
+        <div class="inline-group col-md-3 col-sm-6">
+        <label for="searchMadre"
+        class="form-label">
+        {% translate "Madre" %}
+      </label>
+
+        <input id="searchMadre" value="{{request.GET.madre}}" type="text" class="form-control" aria-label="Madre " aria-describedby="basic-addon1" placeholder="{% translate "Madre" %}">
+
+    </div>
+    
+          </div>
+          <!-- end row -->
+
+                <div id="searchButtons" class="row">
+              <div class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
+              </div>
+                <div class="col-md-3 col-sm-6 mb-2">
+                  <button id="searchButton" class="btn btn-primary btn-block" type="button" onclick="searchPerros()">{% translate "Buscar" %}</button>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-2">
+                  <button id="clearButton" class="btn btn-secondary btn-block" type="button" onclick="clearSearch()">{% translate "Limpiar" %}</button>
+                </div>
+
+        </div>
+      </div> <!-- end card-box -->
+
+  </div> <!-- end col -->
+
+  
+</div>  
+    
+   
+
+
+
+<script>
+function searchPerros() {
+  var searchNombre = document.getElementById("searchNombre").value;
+  var searchNLO = document.getElementById("searchNLO").value;
+  var searchTatuaje = document.getElementById("searchTatuaje").value;
+  
+  //Get values from multiple selection
+  var searchEstadoPerro = [];
+  var searchEstadoSelect = document.getElementById("searchEstado");
+  for (var i = 0; i < searchEstadoSelect.options.length; i++) {
+    if (searchEstadoSelect.options[i].selected) {
+      searchEstadoPerro.push(searchEstadoSelect.options[i].value);
+    }
+  }
+
+  var searchPadre = document.getElementById("searchPadre").value;
+  var searchMadre = document.getElementById("searchMadre").value;
+  var searchChip = document.getElementById("searchChip").value;
+
+  var url = "{% url 'perros:perro_search' %}";
+  var params = "?name=" + searchNombre+ "&chip=" + searchChip + "&nlo=" + searchNLO + "&tatuaje=" + searchTatuaje 
+   + "&estadoPerro=" + searchEstadoPerro + "&padre=" + searchPadre + "&madre=" + searchMadre;
+  window.location.href = url + params;
+}
+
+function clearSearch() {
+  var url = "{% url 'perros:perros' %}";
+  window.location.href = url;
+}
+</script>
+
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card-box">
+                                        <h4 class="header-title">Resultados</h4>
+                                      <br>
+    
+                                        <label class="form-inline mb-3">
+                                            Mostrar
+                                            <select id="demo-show-entries" class="form-control form-control-sm mb-0 ml-1 mr-1">
+                                          
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                            </select>
+                                            registros
+                                        </label>
+                                  
+                                        <div class="table-responsive">
+              
+                                            
+                                        </div>
+                                        <table id="demo-foo-addrow" class="table mb-0 table-bordered toggle-arrow-tiny" data-page-size="10">
+                                            <thead>
+                                            <tr>
+
+                                                <th data-toggle="true">{% translate "Nombre" %}</th>
+                                                <th >{% translate "Chip" %}</th>
+                                                <th >{% translate "Nº Libro Origenes" %}</th>
+                                                <th >{% translate "Tatuaje" %}</th>
+                                                <th >{% translate "Estado" %}</th>
+                                                <th >{% translate "Padre" %}</th>
+                                                <th >{% translate "Madre" %}</th>
+                                                <th data-hide="all"></th>
+
+                                                <!-- th data-toggle="true"> First Name </th>
+                                                <th> Last Name </th>
+                                                <th data-hide="phone"> Job Title </th>
+                                                <th data-hide="all"> DOB </th>
+                                                <th data-hide="all"> Status </th> -->
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                {% for perro in perro_list|dictsort:"id" reversed %}
+                                                <tr>
+                                                  <td>{{ perro.nombre }} {{ perro.afijo }}</td>
+                                                  <td>{{ perro.chip }}</td>
+                                                  <td>{{ perro.nlo }}</td>
+                                                  <td>{{ perro.tatuaje }}</td>
+                                                  <td>{{ perro.estadoPerro.descripcion }}</td>
+                                                  <td>{{ perro.padre }} {{ perro.padre.afijo }}</td>
+                                                  <td>{{ perro.madre }} {{ perro.padre.afijo }}</td>
+                                                  <td>
+                                                    <a href="{% url 'perros:perro' perro.id %}" class="btn btn-primary btn-sm">{% translate "Ver" %}</a>
+                                                    <a href="{% url 'perros:perroUpdate' perro.id %}" class="btn btn-secondary btn-sm">{% translate "Editar" %}</a>
+                                                    <a href="{% url 'perros:perroDelete' perro.id %}" class="btn btn-danger btn-sm">{% translate "Eliminar" %}</a>
+                                                  </td>
+                                                </tr>
+                                                {% endfor %}
+
+
+                                            </tbody>
+                                            <tfoot>
+                                            <tr class="active">
+                                                <td colspan="7">
+                                                    <div class="text-right">
+                                                        <ul class="pagination pagination-split justify-content-end footable-pagination"></ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+
+
+</div> <!-- container -->
+
+
+
+
+
+</main>
+{% endblock %}

@@ -1,0 +1,43 @@
+//
+// reboot.scss
+//
+
+
+// a
+a:focus {
+  outline: none;
+}
+
+// Forms
+label {
+  font-weight: $font-weight-medium;
+}
+
+// Buttons
+button:focus {
+  outline: none;
+}
+
+// blockquote
+
+.blockquote{
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid $gray-300;
+  
+  &.blockquote-reverse{
+    border-left: 0;
+    border-right: 4px solid $gray-300;
+    text-align: right;
+  }
+}
+
+// list group
+
+.list-group-item {
+  color: $gray-600;
+  &:hover{
+    color: $gray-600;
+  }
+}
+

@@ -1,0 +1,94 @@
+//
+// quilljs-editor.scss
+//
+ 
+.ql-container {
+    font-family: $font-family-base;
+    &.ql-snow{
+        border-color: $gray-300;
+    }
+}
+
+.ql-bubble {
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+}
+
+.ql-toolbar {
+    font-family: $font-family-base !important;
+    span {
+        outline: none !important;
+    }
+
+    &.ql-snow{
+        border-color: $gray-300;
+    }
+    &.ql-snow {
+        .ql-picker{
+            &.ql-expanded {
+                .ql-picker-label, .ql-picker-options{
+                    border-color: $gray-300;
+                }
+            }
+        }
+    }
+}
+
+.ql-snow {
+    .ql-stroke{
+        stroke: $dark;
+    }
+    .ql-fill{
+        fill: $dark;
+    }
+    .ql-picker{
+        color: $dark;
+        .ql-stroke{
+            stroke: $dark;
+        }
+        .ql-fill{
+            fill: $dark;
+        }
+        &.ql-expanded {
+            .ql-picker-label{
+                color: $dark;
+                border-color: $gray-300;
+            }
+        }
+    }
+
+    .ql-picker-options{
+        background-color: lighten($gray-200, 2%);
+    }
+}
+
+.ql-bubble {
+    .ql-tooltip{
+        background-color: $dark;
+        color: $light;
+    }
+
+    .ql-stroke{
+        stroke: $light;
+        &.ql-fill{
+            fill: $light;
+        }
+    }
+
+    .ql-fill{
+        fill: $light;
+    }
+    .ql-toolbar{
+        button{
+            &:hover, &:focus, &.ql-active{
+                color: $primary; 
+                .ql-stroke{
+                    stroke: $primary;
+                }
+                .ql-fill{
+                    fill: $primary;
+                }
+            }
+        }
+    }
+}

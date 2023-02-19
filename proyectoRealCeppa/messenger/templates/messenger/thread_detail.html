@@ -1,0 +1,233 @@
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Mensajes{% endblock %}
+{% block content %}
+<style>
+  .avatar  { width:50px; height:50px; float:left; margin-right:10px; }
+  .scrollable {
+  height: 65vh; /* ocupa toda la altura de la pantalla */
+  overflow: auto; /* habilita el scroll */
+  border:
+}
+  .thread  { max-height:300px; overflow-y:auto; padding:0 0.5em;} 
+  .mine    { padding:0 0.5em 0.25em; background-color:rgba(230,242,245,.5); width:92%; margin-left:8%; }
+  .other   { padding:0 0.5em 0.25em; background-color:#f2f3f5; width:92%; }
+</style>
+<main role="main">
+
+
+  <h2 id="subTitulo" class="pt-2" >Mensajes</h2>
+  <br>
+
+  <!-- Create Search Perro structure -->
+
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card-box">
+          
+          <br>
+
+          <div class="row" style="border:1px lightgray solid;padding-top:20px; border-radius: 5px;">
+          <!-- Hilos de conversación -->
+          <div class="col-md-4 scrollable" >
+          <h5 class="header-title">Conversaciones</h5> <hr>
+            <!-- Recorremos los Threads y sólo mostramos los que tienen como mínimo 1 mensaje -->
+             {% for thread in request.user.threads.all %}
+          {% if thread.messages.all|length > 0 %}
+            <div class="mb-3">
+              <!-- Recorremos los miembros del hilo menos el propio request.user -->
+              {% for user in thread.users.all %}
+                {% if user != request.user %}
+                  <!-- Mostramos el avatar del miembro -->
+                  {% for perfil in perfiles %}
+                    {% if perfil.user == user %}
+                      {% if perfil.avatar %}
+                        <img src="{{ perfil.avatar.url }}" class="avatar"/>
+                      {% else %}
+                        <img src="{% static 'registration/img/no-avatar.jpg' %}" class="avatar"/>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  <!-- Mostramos la información del miembro -->
+                  <div>
+                    <a href="{% url 'messenger:detail' thread.pk %}">{{ user.first_name }} {{ user.last_name }}</a> |
+                    <a href="{% url 'perfiles:detail' perfil.pk %}">Ver perfil</a>
+                  <br>
+                  <small><i>Hace {{ thread.messages.last.created|timesince }}</i></small>
+                  <!-- IF count message.readed > 0 show number of new messages -->
+                  <!-- el último mensaje del hilo -->
+                  {% if thread.messages.last.user == request.user %}
+                  <br>
+
+
+                  {% if thread.messages.last.content|length > 10 %}
+                    <p>Tú: {{ thread.messages.last.content | truncatechars:10 }}</p>
+                  {% else %}
+                    <p>Tú: {{ thread.messages.last.content }}</p>
+                  {% endif %}
+
+
+                {% else %}
+                
+                <br>
+                {% if thread.messages.last.content|length > 10 %}
+                  <p>
+                    {{ user.first_name }}: {{ thread.messages.last.content | truncatechars:10 }}
+                    {% if unread_messages > 0 and thread.pk in id_unread_threads %}
+    <span class="badge badge-danger">!</span>
+{% endif %}
+                    
+                  </p>
+                {% else %}
+                  <p>
+                    {{ user.first_name }}: {{ thread.messages.last.content }}
+                    
+               {% if unread_messages > 0 and thread.pk in id_unread_threads %}
+    <span class="badge badge-danger">!</span>
+{% endif %}
+
+                  {% endif %}
+                </p>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+
+
+
+
+
+ <h5 class="header-title">Todos los usuarios</h5>
+<hr>
+{% for perfil in perfiles %}
+  {% if perfil.user != request.user %}
+    <div class="mb-3">
+      <!-- Mostramos el avatar del miembro -->
+      {% if perfil.avatar %}
+        <img src="{{ perfil.avatar.url }}" class="avatar"/>
+      {% else %}
+        <img src="{% static 'registration/img/no-avatar.jpg' %}" class="avatar"/>
+      {% endif %}
+      <!-- Mostramos la información del miembro -->
+      <div>
+        <a >{{ perfil.user.first_name }} {{ perfil.user.last_name }}</a>
+      <br>
+      <a href="{% url 'messenger:start' perfil.user.pk %}">Enviar mensaje</a> |
+      <a href="{% url 'perfiles:detail' perfil.pk %}">Ver perfil</a>
+    </div>
+  </div>
+{% endif %}
+{% endfor %}
+
+
+          </div>
+          <!-- Hilos de conversación -->
+          <div class="col-md-8" style="border-left:1px solid lightgray;">
+            <p> <!-- Recorremos los miembros del hilo menos el propio request.user -->
+            {% for user in thread.users.all %}
+              {% if user != request.user %}     
+              <h5 class="header-title" style="padding-left:35%" >Mensajes con <a href="{% url 'perfiles:detail' user.pk %} ">{{user.first_name}} {{user.last_name}}</a></h5>
+              <hr>
+              {% endif %}
+            {% endfor %}
+            <!-- Mostramos los mensajes en una capa que tiene un overflow vertical de 300 píxeles -->
+            <div class="thread" id="thread">
+
+            <!-- if empty -->
+            {% if object.messages.all|length == 0 %}
+              <div class="alert alert-info" style=text-align:center;>
+                Aún no hay mensajes en este hilo.
+              </div>
+            {% endif %}
+
+              {% for message in object.messages.all %}
+              
+              
+
+                <!-- Dependiendo del usuario asignamos una clase con un color de fondo u otro en el mensaje -->
+                <div {% if request.user == message.user %}class="mine mb-3"{% else %}class="other mb-3"{% endif %}>
+                  <small><i>Hace {{message.created|timesince}}</i></small><br>
+                  {{message.content}}
+                </div>
+              {% endfor %}
+            </div>
+
+            <!-- Aquí crearemos el formulario -->
+            <textarea id="content" class="form-control mb-2" rows="2" placeholder="Escriba su mensaje aquí..."></textarea>
+            <button id="send" class="btn btn-primary btn-sm btn-block" disabled>Enviar</button>
+            <script>
+              var send = document.getElementById("send");
+              send.addEventListener("click", function(){
+                var content = encodeURIComponent(document.getElementById("content").value);
+                if(content.length >0 ){
+                  document.getElementById("content").value='';
+                  send.disabled=true;
+                const url ="{% url 'messenger:add' thread.pk %}"+"?content="+content;
+                fetch(url, {'credentials':'include'}).then(response => response.json()).then(function(data){
+                  //Si el mensaje creado correctamente
+                  if(data.created){
+                    //Si es el primer mensaje del hilo, actualizaremos para que aparezca a la izquierda
+                    window.location.href = "{% url 'messenger:detail' thread.pk %}"
+                    
+                    var message = document.createElement('div');
+                    message.classList.add('mine', 'mb-3');
+                    message.innerHTML='<small><i>Hace 0 minutes</i></small><br>'+decodeURIComponent(content);
+                    document.getElementById('thread').appendChild(message);
+                    ScrollBottomInThread();
+                    
+
+                  } else {
+                    console.log("Se produjo un error insesperado. No se ha podido enviar el mensaje.")
+                  } 
+
+
+                })
+                }
+              })
+
+              //Evento de activación y desactivación
+              var content = document.getElementById("content");
+              content.addEventListener("keyup", function(){
+                if(!this.checkValidity() || !this.value)
+                {
+                  send.disabled=true;
+                }
+                else
+                {
+                  send.disabled=false;
+                }
+              })
+
+              //Scroll abajo siempre
+              function ScrollBottomInThread(){
+                var thread = document.getElementById("thread");
+                thread.scrollTop = thread.scrollHeight;
+              }
+
+              ScrollBottomInThread();
+            </script></p>
+          </div>
+ 
+
+
+    
+  </div>
+</div>
+
+</main>
+{% endblock %}

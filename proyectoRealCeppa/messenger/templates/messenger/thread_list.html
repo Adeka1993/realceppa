@@ -1,0 +1,137 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+  Mensajes
+{% endblock title %}
+{% block content %}
+  <style>
+  .avatar  { width:50px; height:50px; float:left; margin-right:10px; }
+  .scrollable {
+  height: 65vh; /* ocupa toda la altura de la pantalla */
+  overflow: auto; /* habilita el scroll */
+  border:
+}
+
+.col-md-8 p {
+  position: absolute; /* Establecemos la posición absoluta del párrafo */
+  top: 50%; /* Movemos el párrafo hacia la parte superior del div contenedor */
+  left: 50%; /* Movemos el párrafo hacia la parte izquierda del div contenedor */
+  transform: translate(-50%, -50%); /* Centramos el párrafo en el div contenedor */
+}
+  </style>
+  <main role="main">
+    <h2 id="subTitulo" class="pt-2">Mensajes</h2>
+  <br>
+  <!-- Create Search Perro structure -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card-box">
+      <br>
+      <div class="row"
+           style="border:1px lightgray solid;
+                  padding-top:20px;
+                  border-radius: 5px">
+        <!-- Hilos de conversación -->
+        <div class="col-md-4 scrollable">
+          <h5 class="header-title">Conversaciones</h5>
+        <hr>
+        <!-- Recorremos los Threads y sólo mostramos los que tienen como mínimo 1 mensaje -->
+        {% for thread in request.user.threads.all %}
+          {% if thread.messages.all|length > 0 %}
+            <div class="mb-3">
+              <!-- Recorremos los miembros del hilo menos el propio request.user -->
+              {% for user in thread.users.all %}
+                {% if user != request.user %}
+                  <!-- Mostramos el avatar del miembro -->
+                  {% for perfil in perfiles %}
+                    {% if perfil.user == user %}
+                      {% if perfil.avatar %}
+                        <img src="{{ perfil.avatar.url }}" class="avatar"/>
+                      {% else %}
+                        <img src="{% static 'registration/img/no-avatar.jpg' %}" class="avatar"/>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  <!-- Mostramos la información del miembro -->
+                  <div>
+                    <a href="{% url 'messenger:detail' thread.pk %}">{{ user.first_name }} {{ user.last_name }}</a> |
+                    <a href="{% url 'perfiles:detail' perfil.pk %}">Ver perfil</a>
+                  <br>
+                  <small><i>Hace {{ thread.messages.last.created|timesince }}</i></small>
+                  <!-- IF count message.readed > 0 show number of new messages -->
+                  <!-- el último mensaje del hilo -->
+                  {% if thread.messages.last.user == request.user %}
+                  <br>
+
+
+                  {% if thread.messages.last.content|length > 10 %}
+                    <p>Tú: {{ thread.messages.last.content | truncatechars:10 }}</p>
+                  {% else %}
+                    <p>Tú: {{ thread.messages.last.content }}</p>
+                  {% endif %}
+
+
+                {% else %}
+                
+                <br>
+                {% if thread.messages.last.content|length > 10 %}
+                  <p>
+                    {{ user.first_name }}: {{ thread.messages.last.content | truncatechars:10 }}
+                    {% if unread_messages > 0 and thread.pk in id_unread_threads %}
+    <span class="badge badge-danger">!</span>
+{% endif %}
+                    
+                  </p>
+                {% else %}
+                  <p>
+                    {{ user.first_name }}: {{ thread.messages.last.content }}
+                    
+               {% if unread_messages > 0 and thread.pk in id_unread_threads %}
+    <span class="badge badge-danger">!</span>
+{% endif %}
+
+                  {% endif %}
+                </p>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+        
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <h5 class="header-title">Todos los usuarios</h5>
+<hr>
+{% for perfil in perfiles %}
+  {% if perfil.user != request.user %}
+    <div class="mb-3">
+      <!-- Mostramos el avatar del miembro -->
+      {% if perfil.avatar %}
+        <img src="{{ perfil.avatar.url }}" class="avatar"/>
+      {% else %}
+        <img src="{% static 'registration/img/no-avatar.jpg' %}" class="avatar"/>
+      {% endif %}
+      <!-- Mostramos la información del miembro -->
+      <div>
+        <a >{{ perfil.user.first_name }} {{ perfil.user.last_name }}</a>
+      <br>
+      <a href="{% url 'messenger:start' perfil.user.pk %}">Enviar mensaje</a> |
+      <a href="{% url 'perfiles:detail' perfil.pk %}">Ver perfil</a>
+    </div>
+  </div>
+{% endif %}
+{% endfor %}
+</div>
+<!-- Hilos de conversación -->
+<div class="col-md-8" style="border-left:1px solid lightgray;">
+  <p>
+    <i>Selecciona un hilo de conversación de tu panel izquierdo.</i>
+  </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+{% endblock content %}

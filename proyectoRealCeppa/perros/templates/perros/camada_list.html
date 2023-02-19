@@ -1,0 +1,210 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate "Camadas" %}{% endblock %}
+{% block content %}
+
+<main role="main">
+
+  <h2 id="subTitulo" class="pt-2" >Camadas</h2>
+  <br>
+
+  <!-- Create Search Perro structure -->
+
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card-box">
+          <h4 class="header-title">Buscar</h4>
+          <br>
+
+          <div class="row">
+              <div class="col-md-3 inline-group col-sm-6">
+      <label for="searchIdSalto"
+        class="form-label">
+        {% translate "ID Salto" %}
+      </label>
+        <input id="searchIdSalto" value="{{request.GET.idSalto}}" type="text" class="form-control"   aria-describedby="basic-addon1" placeholder="{% translate "ID Salto" %}">
+      </div>  
+
+      <div class="inline-group col-md-3 col-sm-6">
+      <label for="idPeticionSalto"
+        class="form-label">
+        {% translate "ID Petición" %}
+      </label>
+        <input id="searchIdPeticionSalto" value="{{request.GET.idPeticionSalto}}" type="text" class="form-control"   aria-describedby="basic-addon1" placeholder="{% translate "ID Petición" %}">
+        </div> 
+        
+        <!-- Validación desplegable-->
+
+        <div class="inline-group col-md-3 col-sm-6">
+        <label for="searchValidacion"
+        class="form-label">
+        {% translate "Validación" %}
+      </label>
+        <select id="searchValidacion" class="form-control" multiple size="3">
+          <option value="0">{% translate "Todos" %}</option>
+          {% for validacion in validaciones %}
+
+            <!-- get from request list validacionSalto and show descripcion if is in list -->
+            {% if validacion.pk in request.GET.validacionSalto %}
+
+              <option value="{{validacion.pk}}" selected>{{validacion.descripcion}}</option>
+            {% else %}
+              <option value="{{validacion.pk}}">{{validacion.descripcion}}</option>
+            {% endif %}
+
+          {% endfor %}
+        </select>
+      </div>
+
+    
+          </div>
+          <!-- end row -->
+
+                <div id="searchButtons" class="row">
+              <div class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
+              </div>
+                <div class="col-md-3 col-sm-6 mb-2">
+                  <button id="searchButton" class="btn btn-primary btn-block" type="button" onclick="searchSaltos()">{% translate "Buscar" %}</button>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-2">
+                  <button id="clearButton" class="btn btn-secondary btn-block" type="button" onclick="clearSearchSaltos()">{% translate "Limpiar" %}</button>
+                </div>
+
+        </div>
+      </div> <!-- end card-box -->
+
+  </div> <!-- end col -->
+
+  
+</div>  
+    
+   
+
+
+
+<script>
+function searchSaltos() {
+  var searchIdSalto = document.getElementById("searchIdSalto").value;
+  var searchIdPeticionSalto = document.getElementById("searchIdPeticionSalto").value;
+  for (var i = 0; i < searchValidacion.options.length; i++) {
+    if (searchValidacion.options[i].selected) {
+      searchValidacion.push(searchValidacion.options[i].value);
+    }
+  }
+  var url = "{% url 'saltos:salto_search' %}";
+  var params = "?idSalto=" + searchIdSalto + "&idPeticionSalto=" + searchIdPeticionSalto + "&validacionSalto=" + searchValidacion;
+  window.location = url + params;
+
+}
+
+function clearSearchSaltos() {
+  var url = "{% url 'saltos:saltos' %}";
+  window.location.href = url;
+}
+</script>
+
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card-box">
+                                        <h4 class="header-title">Resultados</h4>
+                                      <br>
+    
+                                        <label class="form-inline mb-3">
+                                            Mostrar
+                                            <select id="demo-show-entries" class="form-control form-control-sm mb-0 ml-1 mr-1">
+                                          
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                            </select>
+                                            registros
+                                        </label>
+                                  
+                                        <div class="table-responsive">
+              
+                                            
+                                        </div>
+                                        <table id="demo-foo-addrow" class="table mb-0 table-bordered toggle-arrow-tiny" data-page-size="10">
+                                            <thead>
+                                            <tr>
+
+                                                <th data-toggle="true">{% translate "ID Salto" %}</th>
+                                                <th >{% translate "ID Petición" %}</th>
+                                                <th >{% translate "validacion" %}</th>
+                                                <th >{% translate "Socio" %}</th>
+                                                <th >{% translate "Fecha Salto" %}</th>
+                                                <th >{% translate "Fecha Comunicación" %}</th>
+                                                <th >{% translate "Hembra" %}</th>
+                                                <th >{% translate "Macho" %}</th>
+                                                <th >{% translate "Afijo" %}</th>
+                                                <th data-hide="all"></th>
+
+                                                <!-- th data-toggle="true"> First Name </th>
+                                                <th> Last Name </th>
+                                                <th data-hide="phone"> Job Title </th>
+                                                <th data-hide="all"> DOB </th>
+                                                <th data-hide="all"> Status </th> -->
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                {% for salto in salto_list|dictsort:"id" reversed %}
+                                                <tr>
+                                                  <td>{{ salto.id }}</td>
+                                                  <td>{{ salto.peticionSalto.id }}</td>
+                                                  <td>{{ salto.validacion.descripcion }}</td>
+                                                  <td>{{ salto.socio }}</td>
+                                                  <td>{{ salto.fechaSalto }}</td>
+                                                  <td>{{ salto.fechaComunicacion }}</td>
+                                                  <td>{{ salto.hembra }}</td>
+                                                  <td>{{ salto.macho }}</td>
+                                                  <td>{{ salto.afijo }}</td>
+                                                  <td>
+                                                    <a href="{% url 'saltos:salto' salto.id %}" class="btn btn-primary btn-sm">{% translate "Ver" %}</a>
+                                                    <a href="{% url 'saltos:saltoUpdate' salto.id %}" class="btn btn-secondary btn-sm">{% translate "Editar" %}</a>
+                                                    <a href="{% url 'saltos:saltoDelete' salto.id %}" class="btn btn-danger btn-sm">{% translate "Borrar" %}</a>
+                                                  </td>
+                                                </tr>
+                                                {% endfor %}
+
+
+                                            </tbody>
+                                            <tfoot>
+                                            <tr class="active">
+                                                <td colspan="9">
+                                                    <div class="text-right">
+                                                        <ul class="pagination pagination-split justify-content-end footable-pagination"></ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+
+
+</div> <!-- container -->
+
+
+
+
+
+</main>
+{% endblock %}
+
+
+
+
+
+
+
+

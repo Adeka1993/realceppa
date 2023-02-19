@@ -1,0 +1,312 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-20 21:46+0100\n"
+"PO-Revision-Date: 2022-12-20 21:49+0000\n"
+"Last-Translator: Abdelkader Belbachir <belbachir.job@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\core\templates\core\base.html:163
+msgid "Bienvenido !"
+msgstr "Welcome !"
+
+#: .\core\templates\core\base.html:169
+msgid "Mi perfil"
+msgstr "My profile"
+
+#: .\core\templates\core\base.html:178
+msgid "Cerrar sesión"
+msgstr "Log out"
+
+#: .\core\templates\core\base.html:203
+msgid "Real Club del Perro de Pastor Alemán"
+msgstr "Royal German Shepherd Dog Club"
+
+#: .\core\templates\core\base.html:221 .\core\templates\core\home.html:6
+#: .\core\templates\core\home.html:14
+#: .\core\templates\core\sobreNosotros.html:6
+msgid "Inicio"
+msgstr "Home"
+
+#: .\core\templates\core\base.html:227
+msgid "Adm. Ejemplares"
+msgstr "Adm. Dogs"
+
+#: .\core\templates\core\base.html:279
+msgid "Usuarios"
+msgstr "Users"
+
+#: .\core\templates\core\contactanos.html:6
+msgid "Contáctanos"
+msgstr "Contact us"
+
+#: .\core\templates\core\home.html:20
+msgid "Bienvenido a la plataforma de la Real CEPPA"
+msgstr "Welcome to Real CEPPA plataform"
+
+#: .\core\urls.py:8
+msgid "sobreNosotros/"
+msgstr "about-us"
+
+#: .\core\urls.py:9
+msgid "contactanos/"
+msgstr "contact-us"
+
+#: .\core\views.py:18
+msgid "hola"
+msgstr "hello"
+
+#: .\perros\templates\perros\camada_list.html:4
+#: .\perros\templates\perros\includes\camadas_menu.html:27
+#: .\perros\templates\perros\includes\perros_menu.html:27
+#: .\perros\templates\perros\includes\saltos_menu.html:27
+msgid "Camadas"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:24
+#: .\perros\templates\perros\camada_list.html:26
+#: .\perros\templates\perros\camada_list.html:136
+#: .\perros\templates\perros\salto_list.html:23
+#: .\perros\templates\perros\salto_list.html:25
+#: .\perros\templates\perros\salto_list.html:135
+msgid "ID Salto"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:32
+#: .\perros\templates\perros\camada_list.html:34
+#: .\perros\templates\perros\camada_list.html:137
+#: .\perros\templates\perros\salto_list.html:31
+#: .\perros\templates\perros\salto_list.html:33
+#: .\perros\templates\perros\salto_list.html:136
+msgid "ID Petición"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:42
+#: .\perros\templates\perros\salto_list.html:41
+msgid "Validación"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:45
+#: .\perros\templates\perros\perro_list.html:60
+#: .\perros\templates\perros\salto_list.html:44
+msgid "Todos"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:70
+#: .\perros\templates\perros\perro_list.html:105
+#: .\perros\templates\perros\salto_list.html:69
+msgid "Buscar"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:73
+#: .\perros\templates\perros\perro_list.html:108
+#: .\perros\templates\perros\salto_list.html:72
+msgid "Limpiar"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:138
+#: .\perros\templates\perros\salto_list.html:137
+msgid "validacion"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:139
+#: .\perros\templates\perros\salto_list.html:138
+msgid "Socio"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:140
+#: .\perros\templates\perros\salto_list.html:139
+msgid "Fecha Salto"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:141
+#: .\perros\templates\perros\salto_list.html:140
+msgid "Fecha Comunicación"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:142
+#: .\perros\templates\perros\salto_list.html:141
+msgid "Hembra"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:143
+#: .\perros\templates\perros\salto_list.html:142
+msgid "Macho"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:144
+#: .\perros\templates\perros\salto_list.html:143
+msgid "Afijo"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:168
+#: .\perros\templates\perros\perro_list.html:209
+#: .\perros\templates\perros\salto_list.html:167
+msgid "Ver"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:169
+#: .\perros\templates\perros\perro_list.html:210
+#: .\perros\templates\perros\salto_list.html:168
+msgid "Editar"
+msgstr ""
+
+#: .\perros\templates\perros\camada_list.html:170
+#: .\perros\templates\perros\salto_list.html:169
+msgid "Borrar"
+msgstr ""
+
+#: .\perros\templates\perros\includes\camadas_menu.html:10
+#: .\perros\templates\perros\includes\perros_menu.html:10
+#: .\perros\templates\perros\includes\saltos_menu.html:10
+msgid "Administrar"
+msgstr ""
+
+#: .\perros\templates\perros\includes\camadas_menu.html:19
+#: .\perros\templates\perros\perro_list.html:4
+msgid "Perros"
+msgstr "Dogs"
+
+#: .\perros\templates\perros\includes\camadas_menu.html:23
+#: .\perros\templates\perros\includes\perros_menu.html:23
+#: .\perros\templates\perros\includes\saltos_menu.html:23
+#: .\perros\templates\perros\salto_list.html:4
+msgid "Saltos"
+msgstr ""
+
+#: .\perros\templates\perros\includes\camadas_menu.html:36
+msgid "Listar camadas"
+msgstr ""
+
+#: .\perros\templates\perros\includes\camadas_menu.html:40
+msgid "Añadir camada"
+msgstr ""
+
+#: .\perros\templates\perros\includes\perros_menu.html:19
+#: .\perros\templates\perros\includes\saltos_menu.html:19
+msgid "Ejemplares"
+msgstr ""
+
+#: .\perros\templates\perros\includes\perros_menu.html:36
+msgid "Listar ejemplares"
+msgstr ""
+
+#: .\perros\templates\perros\includes\perros_menu.html:40
+msgid "Añadir ejemplar"
+msgstr ""
+
+#: .\perros\templates\perros\includes\saltos_menu.html:36
+msgid "Listar salto"
+msgstr ""
+
+#: .\perros\templates\perros\includes\saltos_menu.html:40
+msgid "Añadir salto"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:23
+#: .\perros\templates\perros\perro_list.html:25
+#: .\perros\templates\perros\perro_list.html:181
+msgid "Nombre"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:31
+#: .\perros\templates\perros\perro_list.html:33
+#: .\perros\templates\perros\perro_list.html:182
+msgid "Chip"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:40
+msgid "NLO"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:42
+#: .\perros\templates\perros\perro_list.html:183
+msgid "Nº Libro Origenes"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:48
+#: .\perros\templates\perros\perro_list.html:50
+#: .\perros\templates\perros\perro_list.html:184
+msgid "Tatuaje"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:56
+msgid "Estados"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:80
+#: .\perros\templates\perros\perro_list.html:82
+#: .\perros\templates\perros\perro_list.html:186
+msgid "Padre"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:89
+#: .\perros\templates\perros\perro_list.html:92
+#: .\perros\templates\perros\perro_list.html:187
+msgid "Madre"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:185
+msgid "Estado"
+msgstr ""
+
+#: .\perros\templates\perros\perro_list.html:211
+msgid "Eliminar"
+msgstr ""
+
+#: .\proyectoRealCeppa\settings.py:141
+msgid "Español"
+msgstr "Spanish"
+
+#: .\proyectoRealCeppa\settings.py:142
+msgid "Inglés"
+msgstr "English"
+
+#: .\proyectoRealCeppa\urls.py:34
+msgid "perros/"
+msgstr "dogs/"
+
+#: .\proyectoRealCeppa\urls.py:35
+msgid "saltos/"
+msgstr ""
+
+#: .\proyectoRealCeppa\urls.py:36
+msgid "camadas/"
+msgstr ""
+
+#~ msgid "REAL CEPPA"
+#~ msgstr "REAL CEPPA"
+
+#~ msgid "Acceder"
+#~ msgstr "Log in"
+
+#~ msgid "Registro"
+#~ msgstr "Sign in"
+
+#~ msgid "Mensajes"
+#~ msgstr "Messages"
+
+#~ msgid "Salir"
+#~ msgstr "Log out"
+
+#~ msgid "Web REAL CEPPA de procesos"
+#~ msgstr "REAL CEPPA web of processes"
+
+#~ msgid "Spanish"
+#~ msgstr "Spanish"
+
+#~ msgid "English"
+#~ msgstr "English"

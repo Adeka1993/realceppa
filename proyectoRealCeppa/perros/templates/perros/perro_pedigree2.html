@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <style>
+        @page {
+            size: landscape A3;
+            background:linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("{{ STATIC_ROOT_PEDIGREE }}/fondo.jpg");
+            background-image: url("{{ STATIC_ROOT_PEDIGREE }}/fondo2.jpg");
+            opacity: 0.5;
+         
+        }
+       
+       span {
+        margin: 5px;
+       }
+
+       .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+       }
+        </style>
+        <meta charset="UTF-8">
+    </head>
+    <body >
+        <table >
+            <tr>
+                <td style="width: 376px;">
+                    <!-- Inicio 1er cuarto  -->
+                    <table >
+                        <tr>
+                            <td style="padding-top:32px;width: 57px;"></td>
+                            <td style="padding-top:32px;width: 23px;">
+                                <span style="font-size: 10.5px;">1P:</span>
+                            </td>
+                            <td style="padding-top:32px;width: 201.8px;">
+                                <span style="font-size: 10.5px;"><b> 
+                                {% if perro.padre %}
+                                {{ perro.padre.nombre }} 
+                                {% endif %}
+                                </b> </span>
+                            </td>
+                            <td style="padding-top:32px;">
+                                <span style="font-size: 10.5px;">LOE 2038371</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:32px;width: 57px;"></td>
+                            <td style="padding-top:32px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:12px;width: 201.8px;">
+                                <span style="font-size: 10.5px;">IPO3</span>
+                            </td>
+                            <td style="">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 57px;"></td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 201.8px;">
+                                <span style="font-size: 10.5px;">Lbz</span>
+                            </td>
+                            <td style="padding-top:1.8px">
+                                <span style="font-size: 10.5px;">ZB: VA</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 57px;"></td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 119.8px;">
+                                <span style="font-size: 10.5px;">a1</span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 82px;">
+                                <span style="font-size: 10.5px;">e1</span>
+                            </td>
+                            <td style="padding-top:1.8px">
+                                <span style="font-size: 10.5px;">DNA gpr.</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:7px;width: 57px;"></td>
+                            <td style="padding-top:7px;width: 83px;">
+                                <span style="font-size: 10.5px;">Color y Marcas:</span>
+                            </td>
+                            <td style="padding-top:7px;">
+                                <span style="font-size: 10.5px;">sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:253px">
+                        <tr>
+                            <td style="padding-top:6.3px;width: 57px;"></td>
+                            <td style="padding-top:6.3px;width: 23px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">KB:</span>
+                            </td>
+                            <td style="padding-top:6.3px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">
+                                    Groß, mittelkräftig, sehr ausdrucksvoller Kopf. Hoher Widerrist,
+                                    fester Rücken, lange, abschüssige, Kruppe, korrekte
+                                    Winkelungen in der Vor- und Hinterhand, gerade Front. Leicht
+                                    auftretend, zeigt guten Bewegungsablauf mit guter Schrittweite.
+                                    Sicheres Wesen, TSB ausgeprägt.
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:127.5px">
+                        <tr>
+                            <td style="padding-top:7px;width: 57px;vertical-align:top;"></td>
+                            <td style="padding-top:7px;width: 60px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">Hermanos:</span>
+                            </td>
+                            <td style="padding-top:7px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Fin 1er cuarto  -->
+                    <!-- Inicio 2º cuarto  -->
+                    <table >
+                        <tr>
+                            <td style="padding-top:2px;width: 57px;"></td>
+                            <td style="padding-top:2px;width: 23px;">
+                                <span style="font-size: 10.5px;">2M:</span>
+                            </td>
+                            <td style="padding-top:2px;width: 201.8px;">
+                                <span style="font-size: 10.5px;"><b> Franka De Tierras Charras </b> </span>
+                            </td>
+                            <td style="padding-top:2px;">
+                                <span style="font-size: 10.5px;">En trámite</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:32px;width: 57px;">
+                            </td>
+                            <td style="padding-top:32px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:12px;width: 201.8px;">
+                                <span style="font-size: 10.5px;">IPO3</span>
+                            </td>
+                            <td style="">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 57px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 201.8px;">
+                                <span style="font-size: 10.5px;">Lbz</span>
+                            </td>
+                            <td style="padding-top:1.8px">
+                                <span style="font-size: 10.5px;">ZB: VA</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 57px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 119.8px;">
+                                <span style="font-size: 10.5px;">a1</span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 82px;">
+                                <span style="font-size: 10.5px;">e1</span>
+                            </td>
+                            <td style="padding-top:1.8px">
+                                <span style="font-size: 10.5px;">DNA gpr.</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:7px;width: 57px;">
+                            </td>
+                            <td style="padding-top:7px;width: 83px;">
+                                <span style="font-size: 10.5px;">Color y Marcas:</span>
+                            </td>
+                            <td style="padding-top:7px;">
+                                <span style="font-size: 10.5px;">sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:253px">
+                        <tr>
+                            <td style="padding-top:6.3px;width: 57px;">
+                            </td>
+                            <td style="padding-top:6.3px;width: 23px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">KB:</span>
+                            </td>
+                            <td style="padding-top:6.3px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">
+                                    Groß, mittelkräftig, sehr ausdrucksvoller Kopf. Hoher Widerrist,
+                                    fester Rücken, lange, abschüssige, Kruppe, korrekte
+                                    Winkelungen in der Vor- und Hinterhand, gerade Front. Leicht
+                                    auftretend, zeigt guten Bewegungsablauf mit guter Schrittweite.
+                                    Sicheres Wesen, TSB ausgeprägt.
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height: 140px">
+                        <tr>
+                            <td style="padding-top:7px;width: 57px;vertical-align:top;">
+                            </td>
+                            <td style="padding-top:7px;width: 60px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">Hermanos: </span>
+                            </td>
+                            <td style="padding-top:7px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">
+                                    Furbo sb / Ferrari sb / Fiona sb / Ferra sb / Francisca sb / Fendi sb
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Fin 2º cuarto  -->
+                </td>
+                <td style="width: 419px;vertical-align:top;">
+                    <!-- Inicio 3er cuarto  -->
+                    <table >
+                        <tr>
+                            <td style="padding-top:32px;width: 4px;">
+                            </td>
+                            <td style="padding-top:32px;width: 23px;">
+                                <span style="font-size: 10.5px;">3:</span>
+                            </td>
+                            <td style="padding-top:32px;width: 285px;">
+                                <span style="font-size: 10.5px;"><b> Boomer vom Polarstern</b> </span>
+                            </td>
+                            <td style="padding-top:32px;">
+                                <span style="font-size: 10.5px;">SZ 2228650</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;">
+                            </td>
+                            <td style="padding-top:2px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:2px;width: 285px;">
+                                <span style="font-size: 10.5px;">SchH3 FH1 </span>
+                            </td>
+                            <td style="">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:3px;width: 4px;">
+                            </td>
+                            <td style="padding-top:3px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:3px;width: 285px;">
+                                <span style="font-size: 10.5px;">Lbz</span>
+                            </td>
+                            <td style="padding-top:3px">
+                                <span style="font-size: 10.5px;">ZB: VA</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 4px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 140px;">
+                                <span style="font-size: 10.5px;">a1</span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 145px;">
+                                <span style="font-size: 10.5px;">e1</span>
+                            </td>
+                            <td style="padding-top:1.8px">
+                                <span style="font-size: 10.5px;">DNA gpr.</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 4px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;">
+                                <span style="font-size: 10.5px;">sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:105px">
+                        <tr>
+                            <td style="padding-top:3px;width: 4px;">
+                            </td>
+                            <td style="padding-top:3px;width: 23px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">KB:</span>
+                            </td>
+                            <td style="padding-top:3px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">
+                                    Mittelgroßer, kraft- und gehaltvoller, maskuliner Rüde mit besonders gutem
+                                    Ausdruck. Sehr gut geformter Kopf und geschlossene, schwarze Decke. Hoher
+                                    Widerrist, harmonische Ober- und Unterlinie, sehr gute Länge und Lage der
+                                    Kruppe, korrekte Winkelungen, ausgeglichene Brustverhältnisse, gerade Front und
+                                    Schrittfolge. Kraftvolles Gangwerk bei sehr guter Festigkeit. Sicheres Wesen, TSB
+                                    ausgeprägt; läßt ab
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:54px">
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;vertical-align:top;">
+                            </td>
+                            <td style="padding-top:2px;width: 60px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">Hermanos:</span>
+                            </td>
+                            <td style="padding-top:2px;vertical-align:top;">
+                                <span style="font-size: 10.5px;"> Becks sb / Basra sb / Buffy sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Fin 3er cuarto  -->
+                    <!-- Inicio 4º cuarto  -->
+                    <table >
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;">
+                            </td>
+                            <td style="padding-top:2px;width: 23px;">
+                                <span style="font-size: 10.5px;">4:</span>
+                            </td>
+                            <td style="padding-top:2px;width: 285px;">
+                                <span style="font-size: 10.5px;"><b>Odett vom Butjenter Land</b> </span>
+                            </td>
+                            <td style="padding-top:2px;">
+                                <span style="font-size: 10.5px;">SZ 2228650</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;">
+                            </td>
+                            <td style="padding-top:2px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:2px;width: 285px;">
+                                <span style="font-size: 10.5px;">SchH3 FH1 </span>
+                            </td>
+                            <td style="">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:3px;width: 4px;">
+                            </td>
+                            <td style="padding-top:3px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:3px;width: 285px;">
+                                <span style="font-size: 10.5px;">Lbz</span>
+                            </td>
+                            <td style="padding-top:3px">
+                                <span style="font-size: 10.5px;">ZB: VA</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 4px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 140px;">
+                                <span style="font-size: 10.5px;">a1</span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 145px;">
+                                <span style="font-size: 10.5px;">e1</span>
+                            </td>
+                            <td style="padding-top:1.8px">
+                                <span style="font-size: 10.5px;">DNA gpr.</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 4px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;">
+                                <span style="font-size: 10.5px;">sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:105px">
+                        <tr>
+                            <td style="padding-top:3px;width: 4px;">
+                            </td>
+                            <td style="padding-top:3px;width: 23px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">KB:</span>
+                            </td>
+                            <td style="padding-top:3px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">
+                                    Mittelgroßer, kraft- und gehaltvoller, maskuliner Rüde mit besonders gutem
+                                    Ausdruck. Sehr gut geformter Kopf und geschlossene, schwarze Decke. Hoher
+                                    Widerrist, harmonische Ober- und Unterlinie, sehr gute Länge und Lage der
+                                    Kruppe, korrekte Winkelungen, ausgeglichene Brustverhältnisse, gerade Front und
+                                    Schrittfolge. Kraftvolles Gangwerk bei sehr guter Festigkeit. Sicheres Wesen, TSB
+                                    ausgeprägt; läßt ab
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:50px">
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;vertical-align:top;">
+                            </td>
+                            <td style="padding-top:2px;width: 60px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">Hermanos:</span>
+                            </td>
+                            <td style="padding-top:2px;vertical-align:top;">
+                                <span style="font-size: 10.5px;"> Becks sb / Basra sb / Buffy sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Fin 4º cuarto  -->
+                    <!-- Inicio 5º cuarto  -->
+                    <table >
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;">
+                            </td>
+                            <td style="padding-top:2px;width: 23px;">
+                                <span style="font-size: 10.5px;">4:</span>
+                            </td>
+                            <td style="padding-top:2px;width: 285px;">
+                                <span style="font-size: 10.5px;"><b>Odett vom Butjenter Land</b> </span>
+                            </td>
+                            <td style="padding-top:2px;">
+                                <span style="font-size: 10.5px;">SZ 2228650</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;">
+                            </td>
+                            <td style="padding-top:2px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:2px;width: 285px;">
+                                <span style="font-size: 10.5px;">SchH3 FH1 </span>
+                            </td>
+                            <td style="">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:3px;width: 4px;">
+                            </td>
+                            <td style="padding-top:3px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:3px;width: 285px;">
+                                <span style="font-size: 10.5px;">Lbz</span>
+                            </td>
+                            <td style="padding-top:3px">
+                                <span style="font-size: 10.5px;">ZB: VA</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 4px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 140px;">
+                                <span style="font-size: 10.5px;">a1</span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 145px;">
+                                <span style="font-size: 10.5px;">e1</span>
+                            </td>
+                            <td style="padding-top:1.8px">
+                                <span style="font-size: 10.5px;">DNA gpr.</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 4px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;">
+                                <span style="font-size: 10.5px;">sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:105px">
+                        <tr>
+                            <td style="padding-top:3px;width: 4px;">
+                            </td>
+                            <td style="padding-top:3px;width: 23px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">KB:</span>
+                            </td>
+                            <td style="padding-top:3px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">
+                                    Mittelgroßer, kraft- und gehaltvoller, maskuliner Rüde mit besonders gutem
+                                    Ausdruck. Sehr gut geformter Kopf und geschlossene, schwarze Decke. Hoher
+                                    Widerrist, harmonische Ober- und Unterlinie, sehr gute Länge und Lage der
+                                    Kruppe, korrekte Winkelungen, ausgeglichene Brustverhältnisse, gerade Front und
+                                    Schrittfolge. Kraftvolles Gangwerk bei sehr guter Festigkeit. Sicheres Wesen, TSB
+                                    ausgeprägt; läßt ab
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:50px">
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;vertical-align:top;">
+                            </td>
+                            <td style="padding-top:2px;width: 60px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">Hermanos:</span>
+                            </td>
+                            <td style="padding-top:2px;vertical-align:top;">
+                                <span style="font-size: 10.5px;"> Becks sb / Basra sb / Buffy sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Fin 5º cuarto  -->
+                    <!-- Inicio 6º cuarto  -->
+                    <table >
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;">
+                            </td>
+                            <td style="padding-top:2px;width: 23px;">
+                                <span style="font-size: 10.5px;">4:</span>
+                            </td>
+                            <td style="padding-top:2px;width: 285px;">
+                                <span style="font-size: 10.5px;"><b>Odett vom Butjenter Land</b> </span>
+                            </td>
+                            <td style="padding-top:2px;">
+                                <span style="font-size: 10.5px;">SZ 2228650</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;">
+                            </td>
+                            <td style="padding-top:2px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:2px;width: 285px;">
+                                <span style="font-size: 10.5px;">SchH3 FH1 </span>
+                            </td>
+                            <td style="">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:3px;width: 4px;">
+                            </td>
+                            <td style="padding-top:3px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:3px;width: 285px;">
+                                <span style="font-size: 10.5px;">Lbz</span>
+                            </td>
+                            <td style="padding-top:3px">
+                                <span style="font-size: 10.5px;">ZB: VA</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 4px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 140px;">
+                                <span style="font-size: 10.5px;">a1</span>
+                            </td>
+                            <td style="padding-top:1.8px;width: 145px;">
+                                <span style="font-size: 10.5px;">e1</span>
+                            </td>
+                            <td style="padding-top:1.8px">
+                                <span style="font-size: 10.5px;">DNA gpr.</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table >
+                        <tr>
+                            <td style="padding-top:1.8px;width: 4px;">
+                            </td>
+                            <td style="padding-top:1.8px;width: 23px;">
+                                <span style="font-size: 10.5px;"></span>
+                            </td>
+                            <td style="padding-top:1.8px;">
+                                <span style="font-size: 10.5px;">sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:105px">
+                        <tr>
+                            <td style="padding-top:3px;width: 4px;">
+                            </td>
+                            <td style="padding-top:3px;width: 23px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">KB:</span>
+                            </td>
+                            <td style="padding-top:3px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">
+                                    Mittelgroßer, kraft- und gehaltvoller, maskuliner Rüde mit besonders gutem
+                                    Ausdruck. Sehr gut geformter Kopf und geschlossene, schwarze Decke. Hoher
+                                    Widerrist, harmonische Ober- und Unterlinie, sehr gute Länge und Lage der
+                                    Kruppe, korrekte Winkelungen, ausgeglichene Brustverhältnisse, gerade Front und
+                                    Schrittfolge. Kraftvolles Gangwerk bei sehr guter Festigkeit. Sicheres Wesen, TSB
+                                    ausgeprägt; läßt ab
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="height:64px">
+                        <tr>
+                            <td style="padding-top:2px;width: 4px;vertical-align:top;">
+                            </td>
+                            <td style="padding-top:2px;width: 60px;vertical-align:top;">
+                                <span style="font-size: 10.5px;">Hermanos:</span>
+                            </td>
+                            <td style="padding-top:2px;vertical-align:top;">
+                                <span style="font-size: 10.5px;"> Becks sb / Basra sb / Buffy sb</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Fin 6º cuarto  -->
+                </td>
+
+
+
+                <td style="width: 322px;vertical-align:top;">
+
+
+                
+                    <!-- Inicio 7er cuarto  -->
+                    <table >
+                        <tr>
+                            
+                            <td style="vertical-align:top;width: 142.5px;">
+                             
+                                <table >
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:32px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:32px;">
+                                            <span style="font-size: 9.3px;"><b> *Floro degli Achei</b> </span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:12.5px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:12.5px;padding-bottom:0.5px;">
+                                            <span style="font-size: 9.3px;">LOI 07/ 51438 </span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">SchH3</span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">DNA gpr</span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                </table>
+                            </td>
+
+
+                            <td style="vertical-align:top">
+                                
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:32px">
+                                                <span style="font-size: 9.3px;"><b> *Quenn vom Löher Weg</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">SZ 2119344 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2px">
+                                                <span style="font-size: 9.3px;"><b> *Fenia degli Achei</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">LOI 02/78365</span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+                               
+                            </td>
+                        </tr>
+                    </table>
+       
+                    <!-- Fin 7er cuarto  -->
+
+
+
+
+                    <!-- Inicio 8º cuarto  -->
+                    <table >
+                        <tr>
+                            
+                            <td style="vertical-align:top;width: 142.5px;">
+                             
+                                <table >
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:2.8px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:2.8px;">
+                                            <span style="font-size: 9.3px;"><b> *Xini vom Tollensestrand</b> </span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:12.5px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:12.5px;padding-bottom:0.5px;">
+                                            <span style="font-size: 9.3px;">LOI 07/ 51438 </span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">SchH3</span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">DNA gpr</span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                </table>
+                            </td>
+
+
+                            <td style="vertical-align:top">
+                                
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2.8px">
+                                                <span style="font-size: 9.3px;"><b> *Quentin Karanberg</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">SZ 2119344 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2px">
+                                                <span style="font-size: 9.3px;"><b> *Fenia degli Achei</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">LOI 02/78365</span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:20px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+                               
+                            </td>
+                        </tr>
+                    </table>
+       
+                    <!-- Fin 8º cuarto  -->
+
+
+
+
+                    <!-- Inicio 9º cuarto  -->
+                    <table >
+                        <tr>
+                            
+                            <td style="vertical-align:top;width: 142.5px;">
+                             
+                                <table >
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:3.8px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:3.8px;">
+                                            <span style="font-size: 9.3px;"><b> *Xini vom Tollensestrand</b> </span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:12.5px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:12.5px;padding-bottom:0.5px;">
+                                            <span style="font-size: 9.3px;">LOI 07/ 51438 </span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">SchH3</span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">DNA gpr</span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                </table>
+                            </td>
+
+
+                            <td style="vertical-align:top">
+                                
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2.8px">
+                                                <span style="font-size: 9.3px;"><b> *Quentin Karanberg</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">SZ 2119344 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2px">
+                                                <span style="font-size: 9.3px;"><b> *Fenia degli Achei</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">LOI 02/78365</span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+                               
+                            </td>
+                        </tr>
+                    </table>
+       
+                    <!-- Fin 9º cuarto  -->
+
+
+
+
+
+
+                    <!-- Inicio 10º cuarto  -->
+                    <table >
+                        <tr>
+                            
+                            <td style="vertical-align:top;width: 142.5px;">
+                             
+                                <table >
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:3.8px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:3.8px;">
+                                            <span style="font-size: 9.3px;"><b> *Xini vom Tollensestrand</b> </span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:12.5px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:12.5px;padding-bottom:0.5px;">
+                                            <span style="font-size: 9.3px;">LOI 07/ 51438 </span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">SchH3</span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">DNA gpr</span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                </table>
+                            </td>
+
+
+                            <td style="vertical-align:top">
+                                
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2.8px">
+                                                <span style="font-size: 9.3px;"><b> *Quentin Karanberg</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">SZ 2119344 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2px">
+                                                <span style="font-size: 9.3px;"><b> *Fenia degli Achei</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">LOI 02/78365</span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+                               
+                            </td>
+                        </tr>
+                    </table>
+       
+                    <!-- Fin 10º cuarto  -->
+
+
+
+
+
+
+                    <!-- Inicio 11º cuarto  -->
+                    <table >
+                        <tr>
+                            
+                            <td style="vertical-align:top;width: 142.5px;">
+                             
+                                <table >
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:3.8px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:3.8px;">
+                                            <span style="font-size: 9.3px;"><b> *Xini vom Tollensestrand</b> </span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:12.5px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:12.5px;padding-bottom:0.5px;">
+                                            <span style="font-size: 9.3px;">LOI 07/ 51438 </span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">SchH3</span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">DNA gpr</span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                </table>
+                            </td>
+
+
+                            <td style="vertical-align:top">
+                                
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2.8px">
+                                                <span style="font-size: 9.3px;"><b> *Quentin Karanberg</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">SZ 2119344 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2px">
+                                                <span style="font-size: 9.3px;"><b> *Fenia degli Achei</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">LOI 02/78365</span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+                               
+                            </td>
+                        </tr>
+                    </table>
+       
+                    <!-- Fin 11º cuarto  -->
+
+
+
+
+
+
+                    <!-- Inicio 12º cuarto  -->
+                    <table >
+                        <tr>
+                            
+                            <td style="vertical-align:top;width: 142.5px;">
+                             
+                                <table >
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:3.8px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:3.8px;">
+                                            <span style="font-size: 9.3px;"><b> *Xini vom Tollensestrand</b> </span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:12.5px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:12.5px;padding-bottom:0.5px;">
+                                            <span style="font-size: 9.3px;">LOI 07/ 51438 </span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">SchH3</span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">DNA gpr</span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                </table>
+                            </td>
+
+
+                            <td style="vertical-align:top">
+                                
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2.8px">
+                                                <span style="font-size: 9.3px;"><b> *Quentin Karanberg</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">SZ 2119344 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2px">
+                                                <span style="font-size: 9.3px;"><b> *Fenia degli Achei</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">LOI 02/78365</span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+                               
+                            </td>
+                        </tr>
+                    </table>
+       
+                    <!-- Fin 12º cuarto  -->
+
+
+
+
+
+
+                    <!-- Inicio 13º cuarto  -->
+                    <table >
+                        <tr>
+                            
+                            <td style="vertical-align:top;width: 142.5px;">
+                             
+                                <table >
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:3.8px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:3.8px;">
+                                            <span style="font-size: 9.3px;"><b> *Xini vom Tollensestrand</b> </span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:12.5px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:12.5px;padding-bottom:0.5px;">
+                                            <span style="font-size: 9.3px;">LOI 07/ 51438 </span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">SchH3</span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">DNA gpr</span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                </table>
+                            </td>
+
+
+                            <td style="vertical-align:top">
+                                
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2.8px">
+                                                <span style="font-size: 9.3px;"><b> *Quentin Karanberg</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">SZ 2119344 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2px">
+                                                <span style="font-size: 9.3px;"><b> *Fenia degli Achei</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">LOI 02/78365</span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+                               
+                            </td>
+                        </tr>
+                    </table>
+       
+                    <!-- Fin 13º cuarto  -->
+
+
+
+
+
+
+                    <!-- Inicio 14º cuarto  -->
+                    <table >
+                        <tr>
+                            
+                            <td style="vertical-align:top;width: 142.5px;">
+                             
+                                <table >
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:3.8px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:3.8px;">
+                                            <span style="font-size: 9.3px;"><b> *Xini vom Tollensestrand</b> </span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:12.5px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:12.5px;padding-bottom:0.5px;">
+                                            <span style="font-size: 9.3px;">LOI 07/ 51438 </span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">SchH3</span>
+                                        </td>
+                                    
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="vertical-align:top;padding-top:0px;width: 7px;">
+                                            <span style="font-size: 9px;"></span>
+                                        </td>
+                                        <td style="vertical-align:top;padding-top:0px">
+                                            <span style="font-size: 9.3px;">DNA gpr</span>
+                                        </td>
+                                    
+                                    </tr>
+
+                                </table>
+                            </td>
+
+
+                            <td style="vertical-align:top">
+                                
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2.8px">
+                                                <span style="font-size: 9.3px;"><b> *Quentin Karanberg</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">SZ 2119344 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:2px">
+                                                <span style="font-size: 9.3px;"><b> *Fenia degli Achei</b> </span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:5px;width:130px;">
+                                                <span style="font-size: 9.3px;">LOI 02/78365</span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;">DNA</span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+
+                                    <table >
+                                        <tr>
+                                           
+                                            <td style="vertical-align:top;padding-top:0.1px;width:130px;height:18px;">
+                                                <span style="font-size: 9.3px;">SchH3 FH1 IP3 </span>
+                                            </td>
+
+                                            <td style="vertical-align:top;padding-top:5px">
+                                                <span style="font-size: 9.3px;"></span>
+                                            </td>
+                                           
+                                        </tr>
+                                    </table>
+                               
+                            </td>
+                        </tr>
+                    </table>
+       
+                    <!-- Fin 14º cuarto  -->
+
+
+
+
+
+
+                </td>
+                <td>
+                   
+                </td>
+            </tr>
+        </table>
+    </body>
+    <!--<img src="{{ STATIC_ROOT_PEDIGREE }}/fondo.jpg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;"> -->
+</html>

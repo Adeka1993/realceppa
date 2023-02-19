@@ -1,0 +1,120 @@
+// 
+// card.scss
+//
+
+.card {
+    margin-bottom: $grid-gutter-width;
+    box-shadow: $box-shadow;
+}
+
+// Card title / Card Header
+.card-title,
+.card-header {
+    margin-top: 0;
+}
+
+.card-title{
+    font-size: 16px;
+}
+
+.header-title {
+    font-size: 14px;
+    margin: 0 0 7px 0;
+    text-transform: uppercase;
+    font-family: $font-family-secondary;
+    font-weight: $font-weight-semibold;
+}
+
+.sub-header {
+    margin-bottom: $grid-gutter-width;
+    color: $gray-600;
+    font-size: 13px;
+}
+
+.card-widgets {
+    float: right;
+    height: 16px;
+    > a {
+        color: inherit;
+        font-size: 18px;
+        display: inline-block;
+        line-height: 1;
+
+        &.collapsed {
+            i {
+                &:before {
+                    content: "\F415";
+                }
+            }
+        }
+    }
+}
+
+
+//Card disable loading (Custom Cards)
+.card-disabled {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: $card-border-radius;
+    background: rgba($white, 0.8);
+    cursor: progress;
+    .card-portlets-loader {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        margin: 40px auto;
+        .double-bounce1,
+        .double-bounce2 {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: $primary;
+            opacity: 0.6;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: - ($grid-gutter-width / 2);
+            margin-top: - ($grid-gutter-width / 2);
+            animation: doubleBounce 2.0s infinite ease-in-out;
+        }
+        .double-bounce2 {
+            animation-delay: -1.0s;
+        }
+    }
+}
+
+              
+@keyframes doubleBounce {
+0%, 100% {
+            transform: scale(0); }
+50% {
+            transform: scale(1); } 
+        }
+              
+              
+
+// card footer
+
+.card-footer{
+    border-top: 1px solid $gray-200;
+}
+
+// card border
+
+.card-border{
+    .card-header{
+        border-top: 2px solid $gray-400;
+    }
+}
+
+// Custom card box
+.card-box {
+    background-color: $card-bg;
+    padding: $card-spacer-x;
+    box-shadow: $box-shadow;
+    margin-bottom: $grid-gutter-width;
+    @include border-radius($card-border-radius);
+}

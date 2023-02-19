@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}{{perro.title}}{% endblock %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<link href="{% static 'perros/css/custom_ckeditor.css' %}" rel="stylesheet">
+
+
+<main role="main">
+
+
+  <h2 id="subTitulo" class="pt-2" >Camada {{perro.nombre}} {{perro.afijo}}</h2>
+  <br>
+
+
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card-box">
+          <br>
+        <h2 class="section-heading mb-4">{{perro.nombre}}</h2>
+        <p>{{perro.lo}}</p>
+        <p>{{perro.nlo}}</p>
+        <p>{{perro.tatuaje}}</p>
+        <p>{{perro.chip}}</p>
+        <p>{{perro.sexo}}</p>
+   
+
+        <div>
+          {{perro.content|safe}}
+          {% if request.user.is_staff %}
+            <p><a href="{% url 'camadas:camadaUpdate' camada.id %}">Editar</a></p>
+          {% endif %}
+          
+             <form action="" method="post">{% csrf_token %}
+                {{ form.as_p}}
+                
+              <div class="text-center">  
+              <a href="{% url 'camadas:camadaUpdate' camada.id %}" class="btn btn-primary btn-block">Modificar ejemplar</a>
+              </div>
+            </form> 
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

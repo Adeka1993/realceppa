@@ -1,0 +1,22 @@
+//
+// sparkline.scss
+//
+
+.jqstooltip {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: auto !important;
+  height: auto !important;
+  background-color: $dark !important;
+  padding: 5px 10px !important;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-color: $dark !important;
+}
+.jqsfield {
+  color: $gray-200 !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}

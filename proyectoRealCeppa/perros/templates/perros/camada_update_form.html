@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Editar Camada{% endblock %}
+{% block content %}
+<main role="main">
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<link href="{% static 'perros/css/custom_ckeditor.css' %}" rel="stylesheet">
+
+<style type="text/css">
+  @media (min-width: 768px)
+{
+div div div form p {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33%;
+    flex: 0 0 33%;
+    max-width: 33%;
+    width: 30%;
+    display: inline-block;
+    margin: 1%;
+}
+
+  }
+</style>
+
+<main role="main">
+
+  <h2 id="subTitulo" class="pt-2" >Editar Camada</h2>
+  <br>
+
+
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card-box">
+          <br>
+          {% if 'ok' in request.GET %}
+            <p style="color:green;">
+              Ejemplar modificado correctamente.
+              <a href="{% url 'perros:perro' perro.id  %}">Haz click aquí para ver el resultado.</a>
+            </p>
+          {% endif %}
+          <form action="" method="post">{% csrf_token %}
+                {{ form.as_p}}
+
+              <div class="text-center">  
+                <input type="submit" class="btn btn-primary btn-block" value="Modificar ejemplar" />
+              </div>
+            </form> 
+        </div>
+      </div>
+    </div>
+
+
+</main>
+{% endblock %}

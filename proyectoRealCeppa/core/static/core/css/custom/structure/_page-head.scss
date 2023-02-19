@@ -1,0 +1,54 @@
+// 
+// page-title.scss
+//
+
+.page-title-box {
+    padding: 10px 20px;
+    margin: 0 -22px 24px -22px;
+    background-color: $card-bg;
+    box-shadow: $box-shadow;
+
+    .page-title {
+        font-size: 17px;
+        margin: 0;
+        line-height: 35px;
+    }
+
+    .page-title-right {
+        float: right;
+    }
+
+    .breadcrumb {
+        padding-top: 6px;
+    }
+}
+
+
+@include media-breakpoint-down(sm) {
+    .page-title-box {
+        .page-title {
+            display: block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            line-height: 35px;
+        }
+        .breadcrumb {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .page-title-box {
+        .page-title-right {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 419px) {
+    .page-title-box .breadcrumb {
+        display: none;
+    }
+}

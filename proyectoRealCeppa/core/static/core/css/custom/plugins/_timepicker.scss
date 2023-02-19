@@ -1,0 +1,38 @@
+
+// 
+// timepicker.scss
+//
+
+
+.bootstrap-timepicker-widget {
+    table {
+        td {
+            input {
+                width: 32px;
+                height: 32px;
+                border: 0;
+                color: $white;
+                background-color: $primary;
+                border-radius: 50%;
+    
+            }
+            
+            a{
+                color: $gray-500;
+                &:hover {
+                    background-color: transparent;
+                    border: 1px solid transparent;
+                    color: $primary;
+                }
+            }
+
+        }     
+    }
+    &.dropdown-menu:after{
+        border-bottom-color: $gray-200;
+    }
+    &.timepicker-orient-bottom:after{
+        border-top-color: $gray-200;
+    }
+}
+

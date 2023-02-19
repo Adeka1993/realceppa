@@ -1,0 +1,347 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Perfil: {{miPerfil.user}}{% endblock %}
+{% block content %}
+<style>.errorlist{color:red;} label{display:none}</style>
+<main role="main">
+
+                    
+
+
+                        <br>
+                        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+  
+                        <!-- end page title --> 
+
+                        <div class="row">
+                            <div class="col-sm-12"> 
+                            
+                                <div class="profile-bg-picture" style="background-image: url({% static 'core/img/bg-profile.jpg' %}); position: relative;">
+  <span class="picture-bg-overlay" style="background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .6)); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></span>
+</div>
+                                <!-- meta -->
+                                <div class="profile-user-box">
+                                  {% if messages %}
+
+                                      {% for message in messages %}
+
+                                    {% if  "Perfil" in message.message and message.level == 25 %}
+                                        <div class="alert alert-success alert-dismissible fade show" id="mensajePerfil1" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>¡Correcto!</strong> {{message.message}}
+                                        </div>
+                                         <script>
+                                        document.getElementById('mensajePerfil1').scrollIntoView();
+                                        </script>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                    <div class="row">
+                                    
+                                        <div class="col-md-4">
+                                            <span class="float-left mr-3">
+                                            {% if miPerfil.avatar %}
+                <img src="{{miPerfil.avatar.url}}" class="avatar-xl rounded-circle"  style="margin-left: 20px;">
+              {% else %}
+                <img src="{% static 'registration/img/no-avatar.jpg' %}" class="avatar-xl rounded-circle"  style="margin-left: 20px;">
+              {% endif %}
+
+           </span>
+                                            <div class="media-body">
+                                                <h4 class="mt-1 mb-1 font-18 ellipsis">{{miPerfil.tratamiento}} {{miPerfil.user.first_name}} {{miPerfil.user.last_name}}</h4>
+                                                <p class="font-13"> {{miPerfil.user.email}}</p>
+                                                
+                                            </div>
+                                        </div>
+                                         <div class="col-sm-3 mt-1">
+                                            <p class="text-muted font-13"><strong>Tipo Socio :</strong> <span class="ml-3">{{miPerfil.tipoSocio}}</span><br>
+                                              <strong>Nº Socio :</strong> <span class="ml-3">{{miPerfil.numeroSocio}}</span></p>
+        
+                                        </div>
+                                        <div class="col-md-2">
+                                        </div>
+
+                                         <div class="col-md-3">
+                                            <div class="text-right">
+                                            <a href="{% url 'perfiles:edit' miPerfil.id %}" class="btn btn-primary btn-block" style="margin-top: 18px;">
+                                              
+                                                    Editar perfil
+                                                </a>
+
+                                           
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ meta -->
+                            </div>
+                        </div>
+                        <!-- end row -->
+        
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <!-- Personal-Information -->
+                                                                          
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 mb-4">Información Personal</h4>
+                                    <div class="panel-body">
+                                    <p class="text-muted font-13"><strong>Biografía :</strong> <span class="ml-3">{{miPerfil.biografia}}</span></p>
+        
+                                    
+        
+                                        <hr>
+        
+                                        <div class="text-left">
+                                        <p class="text-muted font-13"><strong>Fecha Nacimiento :</strong> <span class="ml-3">{{miPerfil.fechaNacimiento | date:"d/m/Y"}}</span></p>
+                                        <p class="text-muted font-13"><strong> DNI :</strong> <span class="ml-3">{{miPerfil.dni}}</span></p>
+                                            <p class="text-muted font-13"><strong>Dirección :</strong> <span class="ml-3">{{miPerfil.direccion}}</span></p>
+        
+                                            <p class="text-muted font-13"><strong>Telefono :</strong><span class="ml-3">{{miPerfil.telefono}}</span></p>
+                                            <p class="text-muted font-13"><strong>Código Postal :</strong> <span class="ml-3">{{miPerfil.codigoPostal}}</span></p>
+
+                                            <p class="text-muted font-13"><strong>Población :</strong> <span class="ml-3">{{miPerfil.poblacion}}</span></p>
+
+                                            <p class="text-muted font-13"><strong>Provincia :</strong> <span class="ml-3">{{miPerfil.provincia}}</span></p>
+
+                                            
+
+                                            <p class="text-muted font-13"><strong>Región :</strong> <span class="ml-3">{{miPerfil.region}}</span></p>
+
+                                            <p class="text-muted font-13"><strong>País :</strong> <span class="ml-3">{{miPerfil.pais}}</span></p>
+        
+                                        
+        
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Personal-Information -->
+        
+                                
+        
+                            </div>
+        
+        
+                            <div class="col-md-6 col-lg-8">
+        
+        
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 mb-4">Datos Club</h4>
+                                    <div class="">
+                                        <div class="col-md-4 col-sm-12" style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Delegación</h5>
+        
+                                            <p class="text-muted font-13 mb-0">{{miPerfil.delegacion}}
+                                            </p>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-12" style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Grupo de Trabajo</h5>
+        
+                                            <p class="text-muted font-13 mb-0">{{miPerfil.grupoTrabajo}}
+                                            </p>
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-12" style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Afijo</h5>
+        
+                                            <p class="text-muted font-13 mb-0">{{miPerfil.afijo}}
+                                            </p>
+                                        </div>
+        
+                                        <hr>
+        
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Criador</h5> 
+                                            <p class="text-muted font-13 mb-0">
+                                            {% if miPerfil.criador == True %}
+                                                Si
+                                            {% else %}
+                                                No
+                                            {% endif %}
+                                         
+                                            </p>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Figurante</h5> 
+                                            <p class="text-muted font-13 mb-0">
+                                            {% if miPerfil.figurante == True %}
+                                                Si
+                                            {% else %}
+                                                No
+                                            {% endif %}
+                                            </p>
+                                        </div>
+
+
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Trazador</h5> 
+                                            <p class="text-muted font-13 mb-0">
+                                            {% if miPerfil.trazador == True %}
+                                                Si
+                                            {% else %}
+                                                No
+                                            {% endif %}
+                                            </p>
+                                        </div>
+
+                                        
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Juez</h5> 
+                                            <p class="text-muted font-13 mb-0">
+                                            {% if miPerfil.juez == True %}
+                                                Si
+                                            {% else %}
+                                                No
+                                            {% endif %}
+                                            </p>
+                                        </div>
+
+
+                                        
+                                        <div class="col-lg-2 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <h5 class="text-custom mb-1">Inspector</h5> 
+                                            <p class="text-muted font-13 mb-0">
+                                            {% if miPerfil.inspector == True %}
+                                                Si
+                                            {% else %}
+                                                No
+                                            {% endif %}
+                                            </p>
+                                        </div>
+
+                                        <hr>
+
+                                         <div class="col-7"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Cuenta Bancaria: </strong><small>{{miPerfil.cuentaBancaria}}</small></p>
+                                        </div>
+
+                                        <div class="col-4"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Falta Pago: </strong><span style="margin-left:25px;"><small>
+                                             {% if miPerfil.faltaPago == True %}
+                                                Si
+                                            {% else %}
+                                                No
+                                            {% endif %}
+                                               </small></span></p>
+                                        </div>
+
+
+
+                                        <hr>
+
+                                        <div class="col-lg-3 col-md-4 col-sm-5"  style="display:inline-block">
+                                             <p class="text-muted mb-0"><strong>Fecha Alta: </strong><small>{{user.date_joined|date:"d/m/Y"}}</small></p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-5"  style="display:inline-block;text-align:top">
+                                             <p class="text-muted mb-0"><strong>Fecha Modificación: </strong><small>{{miPerfil.fechaModificacion|date:"d/m/Y"}}</small></p>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-3 col-sm-5"  style="display:inline-block">
+                                            <p class="text-muted mb-2"><strong>Baja: </strong><span style="margin-left:25px;">
+                                            {% if miPerfil.baja == True %}
+                                                Si
+                                            {% else %}
+                                                No
+                                            {% endif %}
+                                            </span></p>
+                                       
+                                             <p class="text-muted mb-2"><strong>Fecha Baja: </strong><small>{{miPerfil.fechaBaja|date:"d/m/Y"}}</small></p>
+
+                                             <p class="text-muted mb-2"><strong>Motivo Baja: </strong>{{miPerfil.motivoBaja}}</p>
+                                        </div>
+
+        
+                                    </div>
+                                </div>
+        
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 mb-4">Titularidad</h4>
+                                    
+                                    <div class="">
+                                                                    
+
+                                        <table class="table mb-0">
+                                            <thead>
+                                            <tr>
+                                                <th>Id Ejemplar</th>
+                                                <th>Nombre Ejemplar</th>
+                                                <th>FechaInicio</th>
+                                                <th>Fecha Fin</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for titular in current_titular %}
+                                            <tr>
+                                                <td>{{ titular.perro_titular.id }}</td>
+                                                <td>{{ titular.perro_titular.nombre }} {{ titular.perro_titular.afijo }}</td>
+                                                <td>{{ titular.fechaInicio | date:"d/m/Y"}}</td>
+                                                <td>{{ titular.fechaFin | date:"d/m/Y"}}</td>
+                                                <td><a href="{% url 'perros:perro' titular.perro_titular.id %}" class="btn btn-primary btn-sm">Ver</a></td>
+                                            </tr>
+                                             {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 mb-4">Cesión</h4>
+                                    <div class="">
+ 
+
+                                        <table class="table mb-0">
+                                            <thead>
+                                            <tr>
+                                                <th>Id Ejemplar</th>
+                                                <th>Nombre Ejemplar</th>
+                                                <th>FechaInicio</th>
+                                                <th>Fecha Fin</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for cesionario in current_cesionario %}
+                                            <tr>
+                                                <td>{{ cesionario.perro_cesionario.id }}</td>
+                                                <td>{{ cesionario.perro_cesionario.nombre }} {{ titular.perro_cesionario.afijo }}</td>
+                                                <td>{{ cesionario.fechaInicio | date:"d/m/Y"}}</td>
+                                                <td>{{ cesionario.fechaFin | date:"d/m/Y"}}</td>
+                                                <td><a href="{% url 'perros:perro' cesionario.perro_cesionario.id %}" class="btn btn-primary btn-sm">Ver</a></td>
+                                            </tr>
+                                             {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+        
+                            </div>
+                            <!-- end col -->
+        
+                        </div>
+                        <!-- end row -->
+
+     
+
+                <!-- end Footer -->
+                </form>
+
+</main>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+//
+// Daterange
+//
+
+.daterangepicker {
+  background-color: $card-bg;
+  border-color: $gray-300;
+
+  .calendar-table{
+      background-color: $card-bg;
+      border: none;
+      .next, .prev{
+          span{
+              border-color: $gray-500;
+          }
+      }
+  }
+  
+  th, td{
+      padding: 5px;
+      &.week{
+          color: $gray-400;
+      }
+      &.available{
+          &:hover{
+              background-color: lighten($gray-200, 4%);
+          }
+      }
+  }
+
+  td.active, td.active:hover, .ranges li.active {
+      background-color: $primary !important;
+
+  }
+
+  .ranges li{
+    background-color: lighten($gray-200, 2%);
+    margin: 4px;
+      &:hover{
+        background-color: $gray-300;
+      }
+  }
+
+  .month, .calendar-time{
+      select{
+          background-color: $input-bg;
+          border-color: $input-border-color;
+          color: $input-color;
+
+      }
+  }
+
+  td{
+      &.off, &.off.in-range, &.off.start-date,  &.off.end-date{
+          background-color: transparent;
+          color: rgba($gray-400, 0.7);
+      }
+
+      &.in-range{
+          background-color: lighten($gray-200, 4%);
+          color: $gray-600;
+      }
+  }
+
+  &.show-ranges.ltr {
+      .drp-calendar.left{
+          border-left-color: $gray-300;
+      }
+  }
+
+
+  .drp-buttons {
+      border-top-color: $gray-300;
+      .btn{
+          font-weight: $font-weight-medium;
+      }
+  }
+}
+  

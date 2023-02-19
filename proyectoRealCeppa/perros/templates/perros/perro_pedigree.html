@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+     
+        <style>
+
+        @page {
+            size: landscape A3;
+            background:linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("{{ STATIC_ROOT_PEDIGREE }}/fondo.jpg");
+            background-image: url("{{ STATIC_ROOT_PEDIGREE }}/fondo.jpg");
+            opacity: 0.5;
+         
+        }
+       
+       span {
+        margin: 5px;
+       }
+
+       .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+       }
+        </style>
+        <meta charset="UTF-8">
+    </head>
+    <body >
+
+        <table>
+            <tr>
+                <td>Columna 1</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="padding-top:144.5px;padding-left:39px;">
+                                <span style="font-size: 12.2px;">Para el perro de pastor alemán</span>
+                            </td>
+                            <td style="padding-top:143px;padding-left:-62.5px;">
+                                <span style="font-size: 13.4px;"><b>{{ perro.nombre }} {{ perro.afijo }}</b> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="padding-top:11.1px;padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12px;">Sexo:</span>
+                                        </td>
+                                        <td style="padding-top:3.1px;padding-left:8.5px;">
+                                            <span style="font-size: 12.2px;"><b>{{ perro.sexo }}</b> </span>
+                                        </td>
+                                        <td style="padding-top:11.1px;padding-left:44px; widht:70px;">
+                                            <span style="font-size: 12px;">Tipo&nbspde&nbsppelo:</span>
+                                        </td>
+                                        <td style="padding-top:11.1px;padding-left:39px;">
+                                          
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                             <td style="padding-top:3.3px;padding-left:-15.3px;">
+                                            <span style="font-size: 12.2px; widht:50px;"><b> {{ perro.tipoPelo }}</b></span>
+                            </td>
+                             </tr>
+
+                            <tr>
+                            <td>
+                            <table>
+                                <tr>
+                                    <td style="padding-top:-7.4px;padding-left:39px;">
+                                        <span style="font-size: 12px;">Color y Marcas: <b>{{ perro.colorMarcas }}</b> </span>
+                                   
+                                      
+                                    </td>
+                                    
+                                  
+                                </tr>
+                      
+
+                        
+                        
+                    </table>
+                </td>
+                <td style="padding-top:-6.2px;padding-left:40px;">
+                         <span style="font-size: 12px;">Nº de Chip: <b>{{ perro.chip }}</b> </span>
+                            </td>
+
+
+
+                        <tr>
+
+
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12px;">Datos Específicos: </span>
+                                        </td>
+                                        <tr>
+                                        <td style="padding-top:2px; padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12.2px;">Fecha de Nacimiento: 
+
+                                            &nbsp&nbsp<b>{{ perro.fechaNacimiento|date:"d/F/Y" }}</b>
+                                            
+                                            </span>
+                                           </td>
+                                      
+                                    </tr>
+                                      
+                                    </tr>
+                                </table>
+                            </td>
+                            
+                        </tr>
+
+                        <tr >
+                            <td colspan="2">
+                                <table>
+                                    <tr>
+                                        <td style="padding-left:39px; margin-bottom:-3px;padding-top:11px;">
+                                            <span style="font-size: 12px;">Criador:
+                                            <!--  If criador is null -->
+                                            {% if not criador %}
+                                                <b>Desconocido</b>
+                                            {% endif %}
+                                            <!--  If criador is not null -->
+                                            {% if criador %}
+                                                <b>{{ criador.last_name }}, {{ criador.first_name }}</b>
+                                            {% endif %}
+
+                                              </span>
+                                        </td>
+                                        <tr>
+                                        <td style="padding-top:2px; padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12.2px;">Domicilio: 
+
+                                            &nbsp&nbsp<b>
+                                            {% if not criador %}
+                                                Desconocido
+                                            {% endif %}
+                                            <!--  If criador is not null -->
+                                            {% if criador %}
+                                                {{ perfilCriador.direccion }} {{ perfilCriador.codigoPostal }} {{ perfilCriador.provincia }}
+                                            {% endif %}
+                                      
+                                    </tr>
+                                      
+                                    </tr>
+                                </table>
+                            </td>
+                            
+                             </tr>
+
+
+                              <tr >
+                            <td >
+                                <table>
+                                    <tr>
+                                        <td style="padding-left:39px; margin-bottom:-3px;padding-top:11px;text-align:center;;">
+                                            <span style="font-size: 12px;">Consanguinidad :
+                                           
+
+                                              </span>
+                                        </td>
+                                        <tr>
+                                        <td style="padding-top:2px; padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12.2px;">Domicilio: 
+
+                                            &nbsp&nbsp<b>
+                                            {% if not criador %}
+                                                Desconocido
+                                            {% endif %}
+                                            <!--  If criador is not null -->
+                                            {% if criador %}
+                                                {{ perfilCriador.direccion }} {{ perfilCriador.codigoPostal }} {{ perfilCriador.provincia }}
+                                            {% endif %}
+                                      
+                                    </tr>
+                                      
+                                    </tr>
+                                </table>
+                            </td>
+
+
+                            <td >
+                                <table>
+                                    <tr>
+                                        <td style="padding-left:39px; margin-bottom:-3px;padding-top:11px;text-align:center;;">
+                                            <span style="font-size: 12px;">Hermanos: 
+                                           
+
+                                              </span>
+                                        </td>
+                                        <tr>
+                                        <td style="padding-top:2px; padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12.2px;"></br>
+
+                                            </span>
+                                             </td>
+
+                                      
+                                    </tr>
+                                      
+                                    </tr>
+                                </table>
+                            </td>
+
+
+                            
+                             </tr>
+
+
+                                                  <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="padding-top:30.1px;padding-left:39px; margin-bottom:-3px;">
+                                             <span style="font-size: 12.2px;">Camada compuesta por:&nbsp&nbsp <b>{{ perro.chip }}</b> </span>
+                                   
+                                      
+                                        </td>
+                                    
+                                    </tr>
+                                </table>
+
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="padding-top:11.1px;padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 9px;line-height: 0.2 !important;">
+                                            Exclusivamente&nbspse&nbsppodrá&nbsphacer&nbspuso&nbspde&nbspeste&nbspdocumento&nbsp(Pedigrí)&nbsppara&nbspapuntes,&nbspcopias&nbspo&nbsptraslados&nbspa&nbspotros&nbsplibros&nbspde&nbsporígenes,&nbspcon&nbspel&nbsppermiso&nbspexpreso&nbspdel
+                                            Real&nbspCEPPA.&nbspTodo&nbspsello&nbspque&nbspse&nbspimprima&nbspen&nbspeste&nbspdocumento&nbspdebe&nbsprealizarse&nbsppor&nbspla&nbspOficina&nbspdel&nbspLibro&nbspde&nbspCría&nbspdel&nbspReal&nbspCEPPA,&nbspexceptuando&nbsplos&nbspcambios
+                                            de&nbsppropietarios,&nbsppruebas,&nbspcalificaciones,&nbspetc.,&nbspque&nbspse&nbspreflejarán&nbspen&nbspla&nbspcartilla&nbsp(parte&nbsptrasera).&nbspEl&nbsppedigrí&nbspsólo&nbsptiene&nbspvalidez&nbspcuando&nbspesté&nbspfirmado&nbsppor&nbspel&nbsppropio
+                                            criador.&nbspTiene&nbspvalor&nbspcomo&nbspcertificado&nbspen&nbspel&nbspsentido&nbspjurídico.&nbspQuién&nbspfalsifique&nbspo&nbsphaga&nbspmal&nbspuso&nbspde&nbspél,&nbspserá&nbspperseguido&nbsppor&nbspel&nbspReal&nbspCEPPA&nbsppor&nbspla&nbspvía&nbsppenal.&nbspEl
+                                            pedigrí&nbspes&nbspel&nbspcertificado&nbspescrito&nbspdel&nbspperro,&nbspcon&nbspsu&nbspnombre,&nbsporigen&nbspy&nbspascendencia&nbspy&nbspdebe&nbspser&nbspentregado&nbspa&nbspsu&nbspnuevo&nbsppropietario,&nbsppero&nbspsiempre&nbspes&nbsppropiedad&nbspdel
+                                            Real&nbspCEPPA.&nbspSi&nbspexistiera&nbspincongruencia&nbspcomo&nbsppor&nbspejemplo:&nbspidentidad&nbspdudosa&nbspdel&nbspperro&nbspo&nbsppropietario,&nbspel&nbspReal&nbspCEPPA&nbsppuede&nbsppedir&nbspel&nbsppedigrí&nbspy&nbspretenerlo&nbspsi
+                                            fuera&nbspnecesario.&nbspEn&nbspcaso&nbspde&nbspfallecimiento&nbspdel&nbspanimal,&nbspel&nbsppedigrí&nbspdebe&nbspser&nbspenviado&nbspa&nbspla&nbspOficina&nbspde&nbspCría&nbspdel&nbspReal&nbspCEPPA.
+                                            </span>
+                                   
+                                      
+                                        </td>
+                                    
+                                    </tr>
+                                </table>
+
+                        </tr>
+
+
+                                                  <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="padding-top:10px;padding-left:39px; margin-bottom:-3px;">
+                                             <span style="font-size: 12.2px;">Observaciones:&nbsp&nbsp <b>{{ perro.chip }}</b> </span>
+                                   
+                                      
+                                        </td>
+                                    
+                                    </tr>
+                                </table>
+
+                        </tr>
+
+
+
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="padding-top:30px;padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12px;">Veracidad&nbspde&nbsplos&nbspdatos&nbsparriba&nbsprelacionados:&nbsp(Firma&nbspdel&nbspcriador)</span>
+                                   
+                                      
+                                        </td>
+                                    
+                                    </tr>
+                                </table>
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="padding-top:2.1px;padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12px;">Certificado&nbspde&nbspdatos&nbspy&nbsppruebas:&nbspEl&nbspejemplar&nbsparriba&nbspindicado&nbspha&nbspsido&nbspinscrito&nbspen&nbspel&nbspLibro&nbspde&nbspCría&nbspde&nbspPastores&nbspAlemanes 
+                                            (CPR).&nbspEl&nbsppedigrí&nbspha&nbspsido&nbspelaborado&nbsppor&nbspel&nbspReal&nbspCEPPA&nbspmiembro&nbspde&nbspla&nbspWUSV&nbsp(Weltunion&nbspder&nbspVereine&nbspfür&nbspDeutsche 
+                                            Schäferhunde).&nbspLos&nbspdatos&nbspde&nbspla&nbspascendencia&nbsphan&nbspsido&nbspcomprobados&nbspy&nbspse&nbspconfirma&nbspsu&nbspveracidad.</span>
+                                   
+                                      
+                                        </td>
+                                    
+                                    </tr>
+                                </table>
+
+                        </tr>
+
+
+
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="padding-top:2.1px;padding-left:39px; margin-bottom:-3px;">
+                                            <span style="font-size: 12px;">CPR Número: &nbsp&nbsp<b>24874</b> </span>
+                                        </td>
+                                     
+                                  
+                                    </tr>
+                                </table>
+                            </td>
+                             <td style="padding-top:3.3px;padding-left:-15.3px;">
+                                            <span style="font-size: 12.2px; widht:50px;"><b> Por la Oficina del Libro de Cría del Real CEPPA:</b></span>
+                            </td>
+                             </tr>
+
+
+
+
+
+
+                                            <td>
+                            <table>
+                              
+<tr>
+</tr>
+
+
+
+                        <tr>
+
+
+                                            <td>
+                            <table>
+                                <tr>
+                                    <td style="padding-left:39px;">
+                                        <span style="font-size: 12px;">Código RSCE LOE: &nbsp<b>022</b> </span>
+                                   
+                                      
+                                    </td>
+                                    
+                                  
+                                </tr>
+
+<tr>
+</tr>
+
+
+
+                                  <tr>
+                                    <td style="padding-left:39px;padding-top:6.1px;">
+                                        <span style="font-size: 12px;">Madrid, a 
+                                        {{ today|date:"l"|yesno:"lunes,martes,miércoles,jueves,viernes,sábado,domingo" }}
+                                        ,  {% now "d" %} de 
+                                        {{ today|date:"F"|yesno:"enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" }}
+                                         de  {% now "Y" %} </span>
+                                   
+                                      
+                                    </td>
+                                    
+                                  
+                                </tr>
+
+                      
+
+                        
+                        
+                    </table>
+                </td>
+
+                 </tr>
+
+
+                
+            </tr>
+        </table>
+      
+                                        
+    </body>
+      <!--<img src="{{ STATIC_ROOT_PEDIGREE }}/fondo.jpg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;" > -->
+</html>

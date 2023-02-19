@@ -1,0 +1,88 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Perfiles{% endblock %}
+{% block content %}
+<style>.perfil-avatar{float:left;width:4rem;height:4rem}.perfil-data{padding-left:4.5rem;padding-top:.4rem;}</style>
+<main role="main">
+        
+        <h2 id="subTitulo" class="pt-2" >Usuarios</h2>
+        <br>
+        <div class="row">
+        
+          {% for perfil in perfil_list %}
+
+            <div class="col-lg-4">
+                        <div class="card-box">
+                            <div class="member-card-alt">
+                                <div class="avatar-xxl member-thumb mb-2 float-left">
+                                {% if perfil.avatar %}
+                                <img src="{{perfil.avatar.url}}" class="img-thumbnail" alt="profile-image">
+                  {% else %}
+                   <img src="{% static 'registration/img/no-avatar.jpg' %}" class="img-thumbnail" alt="profile-image">
+                  {% endif %}
+
+                                    
+                                    <i class="mdi mdi-star-circle member-star text-success" title="verified user"></i>
+                                </div>
+
+                                <div class="member-card-alt-info">
+                                    <h4 class="mb-1 mt-0">{{perfil.user|truncatechars:"16"}}</h4>
+                                    <p class="text-muted">{{perfil.email}} <span> | </span> <span> <a href="#" class="text-custom">websitename.com</a> </span></p>
+                                    <p class="text-muted font-13">
+                                        Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+                                    </p>
+
+                                    <a type="button" class="btn btn-primary btn-sm mt-2 waves-effect waves-light" href="{% url 'perfiles:detail' perfil.pk %}"> Ver más</a>
+                                    <button type="button" class="btn btn-link text-danger btn-sm mt-2 waves-effect waves-light"> Delete </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end col -->
+
+
+          
+
+
+
+
+
+
+
+
+          {% endfor %}
+          {% if is_paginated %}
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+              {% if page_obj.has_previous %}
+                <li class="page-item ">
+                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+                </li>
+              {% endif %}
+              {% for i in paginator.page_range %}
+                <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                  <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                </li>
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <li class="page-item ">
+                  <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+                </li>
+              {% endif %}
+            </ul>
+          </nav>
+        {% endif %}
+        </div>
+
+</main>
+{% endblock %}
